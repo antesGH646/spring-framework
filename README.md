@@ -1,0 +1,88 @@
+# spring-framework
+
+NOTE THAT SPRING IS ALL ABOUT ANNOTATIONS.
+
+What is framework?
+
+It is a set of common functionalities that provides a foundational structure to develop an application.
+No matter what the domains are, there are common requirements for the applications. For example, you need access to a database for your application. All the applications need the same door. Therefore, you don’t need to rewrite the same code over and over.
+All domains have similar structure to build their applications:
+business logic (user stories that you develop, if you don’t know the business logic you cannot even to start developing, first you need to understand the business logic),
+transaction (close and open a database),
+security (implementing some security),
+logging(log something),
+data persistence,
+data transfer,
+and caching.
+
+Spring is an echo system of frameworks that helps a developer to build a software application. https://spring.io/projects
+
+These frameworks give you a solution for things you want to do. Ex there is Spring security to deal with the security for your application. If you want to work on the cloud there is Spring cloud for that. If you want to work with a database, there is Spring data for that too. Spring boot is under the umbrella of Spring, but gives more flexibility by combining more components. Data streaming applications such as bank’s applications are using Spring for the development.
+All Spring frameworks might not be needed, but as a developer you must know the main Spring frameworks necessarily needed for your application.
+Nowadays companies are using microservices for their APIs, and the main language for microservices is Java. They are using data streaming for their millions transactions in a second.
+With Spring, you can squeeze 200 lines of code with one annotation.
+
+How do you do it?
+
+You can develop application software using tight coupling design, loosely coupling design, or using Spring framework design/structure.
+
+What is coupling?
+
+Coupling is the measure of dependency when an object is using another object. There are two types of coupling tight coupling lose coupling. When an object is highly dependent on another object to complete its task, this is called tight coupling. As a developer consider the new keyword as a disadvantage. Not only performance issue, but also management of the class objects becomes complicated. When you create an object you need to pass it somewhere or use it to call something somewhere.
+
+Though Java has OOP concept solutions, but these Java core concepts are not enough in the development environment.
+In development environment you do not need to create an object each time you want it. The best concept is to create an object once and use it everywhere. If you are not using an object, do not create it. If you use it once and don’t want to use the object anymore, it should not be available anymore. Java keeps objects available all the time.
+
+In behavioral parameterization you create an interface, create classes that implement it, create a class with methods that accept the interface as a parameter. In the runner class pass the implementing classes as arguments to pass the behaviors. Spring also uses the concepts of abstraction.
+
+You need a good framework to build you software application. Spring is an echo system of frameworks combined in one framework. Spring framework includes spring core, spring data access, spring model view controller (MVC), and spring testing.
+Most companies if they are using microservices they must be using Spring framework for their API development. There are 22 framework types inside the Spring. Therefore, Spring is not only a structure it is also an echo system of frameworks.
+
+How does Spring control the application?
+
+Configuration, implementing, and POJOs classes  ==> Spring Container ==> Configured application system
+
+First you create implementing classes, then all the objects of the implementing classes are placed in one container called Spring Container (also known as Spring Context or context). The Spring Container saves all beans(objects created by the context), and it manages/injects them. Spring creates objects for you, put them in a container, when ever you need them you can call and use them. If you have hundreds of classes, you do not need to place all the objects of the classes in the Spring Container. You need to tell the Spring Container using annotations in the Configuration (Config class) file.
+
+Objected created by Spring are called beans. These are the objects of the implementing classes or objects of any depending on classes.
+Spring injected objects are loosely coupled.
+
+What is Spring?
+Spring is an echo system of frameworks that helps a developer to build a software application. https://spring.io/projects
+There are two types of Spring Containers BeanFactory Container and ApplicationContext. These containers are actually interfaces that belong to certain packages, and they have multiple implementing classes.
+BeanFactory is defined by org.springframework.beans.factory.BeanFactory interface. As you know the Java Collection, if there is an interface, there is at least one implementing class. In Spring framework BeanFactory interface there are also implementing classes. In the same token ApplicationContext also belongs to certain package and there are implementing classes.
+ApplicationContext is defined by org.springframework.context.ApplicationContext interface.
+BeanFactory is the root interface, and ApplicationContext extends from it.
+
+What is an Inversion of Control (IoC)?
+
+The concepts of inversion control is when someone takes control of some ones all responsibility. This is a big relief. In this case the framework takes control of the application and its codes. Spring controls when to create an object when not to use an object etc. To make it simple, when you tell Spring what type objects to create based on the direction in the Configuration class. Spring will create objects for you and inject the dependencies as well. As a developer you configure(tell the Spring about objects that you want) in the Configuration class. Based on the annotations in the Configuration class (usually named nameConfig) the Spring will create objects and inject the dependencies for you. This means you are giving Spring the responsibility to create objects/beans and inject the dependencies. In other words you are inverting the control to Spring.
+
+Without IoC you create objects and inject the dependencies to develop your application. You must deal with all the objects and dependencies (such as database), the application controls everything. But with IoC the framework controls the application. Application means everything you design in the development (UI design, security design, etc).
+
+Summary of Spring Core Concepts
+
+There are two types of Spring Containers. These are the BeanFactory and the ApplicationContext. We use ApplicationContext. ApplicationContext is a container for the implementing  classes. You do not actually need to create objects for every implementing class. Therefore, you configure or tell the context or the container to create and manage objects or beans from the implementing classes. Let’s say you have 1000 implementing classes, you tell the container to create and manage objects out of these classes. The place to tell or write your directing codes is inside the Configuration class. Usually, they are named as “nameConfig”. These classes have the @Configuration annotation on the class level. You tell the Spring Container usually called context through annotations in the Config file. There are two ways to tell the Spring Container (configure) either through @Bean annotations for the classes that you cannot edit or through stereotype annotations for the classes that you can edit. @Bean annotations are placed on method level. There two types of stereotypes annotations. The @Component annotation is placed on the class level for the classes that you want to create object/beans. The @ComponentScan annotation is placed on the class level in the Configuration class to tell the Spring Container to look and find or scan inside the same package for classes that have the @Component annotation on the class level.  Note that, the stereotype annotations are placed on class level.
+
+There are two types of Spring Containers. These are the BeanFactory and the ApplicationContext. We use ApplicationContext. ApplicationContext is a container for the implementing  classes. You do not actually need to create objects for every implementing class. Therefore, you configure or tell the context or the container to create and manage objects or beans from the implementing classes. Let’s say you have 1000 implementing classes, you tell the container to create and manage objects out of these classes. The place to tell or write your directing codes is inside the Configuration class. Usually, they are named as “nameConfig”. These classes have the @Configuration annotation on the class level. You tell the Spring Container typically called context through annotations in the Config file. There are two ways to tell the Spring Container (configure) either through @Bean annotations for the classes that you cannot edit or through stereotype annotations for the classes that you can edit. @Bean annotations are placed on method level. There two types of stereotypes annotations. The @Component annotation is placed on the class level for the classes that you want to create object/beans. The @ComponentScan annotation is placed on the class level in the Configuration class to tell the Spring Container to look and find or scan inside the same package for classes that have the @Component annotation on the class level.  Note that, the stereotype annotations are placed on class level.
+
+What is a Dependency Injection?
+
+When an object is using another object to complete its task, it is called Dependency Injection (DI). In simple terms DI is using objects out of classes that don’t have relationships. If you are not using the Lombok annotations you need to create the Has-A relationship through either through Wiring (calling a method inside a method that has @Bean annotation), or Autowiring by passing the implementing class reference variable as a parameter. If you are using the stereotypes annotations in the Configuration class you need to use the @Autowired annotation to indicate from which class to inject the dependencies. There are three ways to place the @Autowired annotations on the Setters level, constructor level, and the field level.
+However, if you are using the Lombok annotations Spring Container automatically injects the dependencies (the object that an object is depending on) for you.
+
+Abstraction Design software development
+
+There are four main packages in the Abstraction Design Software Development the service, repository, proxy, and the model/entity packages. There are also additional packages such as the config package that stores the classes related to configuration. Group the classes in different folders usually called packages, but all the classes are connected to each other through dependency injection.
+Services: stores the objects implementing the user cases or the business logic or user stories or test cases related classes.
+Repository: stores the object working directly with the database
+Proxy: stores the objects that communicate with something outside the application. For example, email related objects are stored in proxy package
+Model/Entity: stores objects that model the data that the app uses.
+
+When do you add the @Component annotation?
+
+Typically, POJOs do not get the @Component annotation because they do not have implementing methods that object can depend on. They are only encapsulated attributes and with setters and getters, equals, toString, hashCode. If you are adding @Component on POJOs the Spring will not complain, but you are not going to use it. If you are creating an object or bean that you don’t use, know that it is a burden in the memory.  Interfaces in the service, repository, and proxy, etc. packages also do not get @Component annotation, because you cannot create objects from interfaces. The only classes that get @Component annotation are the classes that implement the interfaces inside the repository, proxy, services package, etc.
+NB.
+1. Any class that implements an interface can have the @Component annotation.
+2. If a class has dependency or if it is a dependency to other object, you must tell the Spring Container to create a bean by adding the @Component annotation on the class level.
+3. Remember that the Runner class usually is named classNameApp and must be created at the top package level.
