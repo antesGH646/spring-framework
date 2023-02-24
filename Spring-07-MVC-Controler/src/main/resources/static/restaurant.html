@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <title>WELCOME TO RESTAURANT</title>
+    <style type="text/css">
+        body{
+            text-align: center;
+            background-color: lightgray;
+        }
+        hr{
+            width: 400px;
+        }
+    </style>
+    <!--limit break line length-->
+</head>
+<body>
+<h1 align="center" style="color: rebeccapurple;">Welcome to Our Restaurant</h1>
+<h2>Please select your favorite food!</h2>
+<label>
+    <input type="checkbox" name="Beef">
+</label>Beef
+<label>
+    <input type="checkbox" name="Burger">
+</label>Burger
+<label>
+    <input type="checkbox" name="Salad">
+</label>Salad
+<hr>
+<h2>Let us how you want your food</h2>
+<label>
+    <textarea placeholder="Comments here"></textarea>
+</label>
+<hr>
+<h2>Please select your sauce</h2>
+<label>
+    <select> <!--Drop Down menu-->
+        <option>Sauces</option>
+        <option>Ranch</option>
+        <option>Teriyaki</option>
+        <option>Tzatziki</option>
+    </select>
+</label>
+<hr>
+<h2>Creat an account with us in 3 easy steps</h2>
+<p> <em>Creating an account allows you to track your order</em></p>
+<hr>
+<form><!--To input password, username, textbox, date, etc.-->
+    <p><!-- p help to make a new line -->
+        Email: <label>
+            <input type="text" name="email" placeholder="Enter email">
+        </label>
+    </p>
+    <p>
+        Username:<label>
+        <input type="text" name="username" placeholder="Enter username">
+    </label>
+    </p>
+    <p>
+        Password:<label>
+        <input type="password" name="password" placeholder="Enter password">
+    </label>
+    </p>
+    <button onclick="alert('Thanks for signing up!')">Submit</button>
+</form>
+<form method="center"></form>
+
+</body>
+</html>
