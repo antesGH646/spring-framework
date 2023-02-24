@@ -15,6 +15,7 @@ public class CydeoApplication {
         comment.setAuthor("Adam Smith");
         comment.setText("Wealth of Nations");
 
+        //in real application we do not store it in an object
        ApplicationContext context =
                SpringApplication.run(CydeoApplication.class, args);
 
