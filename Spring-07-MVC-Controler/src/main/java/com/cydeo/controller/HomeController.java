@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @RequestMapping ("/restaurant")//pass the name, associates responding to the http request
+    @RequestMapping ("/rs")//pass the name, associates responding to the http request
     public String ourRestaurant() {
         return "restaurant.html"; //returns the html name
     }
