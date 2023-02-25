@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="">
 
 <head>
     <meta charset="UTF-8">
@@ -10,6 +10,11 @@
 
 <h2 th:text="${name}"></h2>
 <h2 th:text="${course}"></h2>
+<h2 th:text="${subject}"></h2>
+<h2 th:text="${id}"></h2>
+<h2 th:text="${numbers.get(3)}"></h2>
+<h2 th:text="${student.getFirstName()}"></h2>
+<h2 th:text="${student.lastName}"></h2>
 
 </body>
 
