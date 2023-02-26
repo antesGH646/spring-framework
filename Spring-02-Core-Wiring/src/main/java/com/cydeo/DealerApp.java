@@ -12,6 +12,6 @@ public class DealerApp {
         System.out.println("Persons name: " + person.getName());
         System.out.println("Car's make: " + c.getMake());
         //prints null if you do not wire it in the @Bean annotated methods
-        System.out.println("Person's car: " + person.getCar().getMake());
+        System.out.println(person.getName() + "'s car: " + c.getMake());
     }
 }

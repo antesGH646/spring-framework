@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConfigCar {
 
+    //telling Spring to create an object from Car, and inject it when called by other objects
     @Bean
     Car car() {
         Car car = new Car();
@@ -13,6 +14,7 @@ public class ConfigCar {
         return car;
     }
 
+    //Person object wants to use Car object, creating Has-A relationship through Autowiring, method calling
 //    @Bean
 //    Person person() {
 //        Person person = new Person();
@@ -21,6 +23,7 @@ public class ConfigCar {
 //        return person;
 //    }
 
+    //Person object wants to use Car object, creating Has-A relationship through Autowiring, passing object
     @Bean
     Person person(Car car) {
         Person person = new Person();
