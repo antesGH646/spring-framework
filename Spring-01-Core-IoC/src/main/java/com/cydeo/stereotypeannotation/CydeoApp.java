@@ -13,7 +13,7 @@ public class CydeoApp {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext(ConfigCourse.class);
 
-        //tell the container from which class to create beans by passing the class name
+        //tell the container to create beans by passing the class name, calls a method
         context.getBean(Java.class).getTeachingHours();//creates a bean then calls a method
     }
 }
