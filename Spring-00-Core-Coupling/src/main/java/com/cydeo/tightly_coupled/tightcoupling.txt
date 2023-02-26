@@ -1,0 +1,17 @@
+What is tight coupling?
+Coupling is the measure of dependency when an object is using another object.
+There are two types of coupling tight coupling lose coupling. When an object is
+highly dependent on another object to complete its task, this is called tight coupling
+If you add another class for additional criteria or business logic, if make a change
+in one place you have to make changes everywhere. If there is an error in one place
+there will be a failure everywhere, because the classes are not only linked, but they
+are also highly dependent on each other.
+As a developer consider the new keyword as a disadvantage. Not only a performance issue,
+but also the management of the class objects becomes complicated.
+Approach:
+1) Implementing classes are created
+2) A manager class is created. A class that has instances of the implementing classes and initialize
+the instances in its constructor. Methods are created to call the methods of the implementing classes.
+3) A runner class is created. Since the manager class is accepting instances of the implementing classes
+objects of the implementing classes are created. Now an object of the manager can call
+the methods of the manager class
