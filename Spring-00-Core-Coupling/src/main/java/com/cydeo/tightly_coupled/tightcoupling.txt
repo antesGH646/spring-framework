@@ -12,6 +12,6 @@ Approach:
 1) Implementing classes are created
 2) A manager class is created. A class that has instances of the implementing classes and initialize
 the instances in its constructor. Methods are created to call the methods of the implementing classes.
-3) A runner class is created. Since the manager class is accepting instances of the implementing classes
-objects of the implementing classes are created. Now an object of the manager can call
+3) A runner class is created. Since the manager class is accepting instances of the implementing classes,
+new objects of the implementing classes are created. Now an object of the manager can call
 the methods of the manager class
