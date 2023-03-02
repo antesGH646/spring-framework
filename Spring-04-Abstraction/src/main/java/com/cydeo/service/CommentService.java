@@ -7,14 +7,17 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
- * All the implementing class variables are defined and corresponding methods are
- * created in services class
- * 1) implementing class variables are defined
+ * The service package is used to store the manager class that defines references of
+ * the implementing classes and initializes the references in the constructor. In this
+ * class all the implementing class references are encapsulated. Corresponding methods
+ * are created in manager class too.
+ * Flow:
+ * 1) define encapsulated variables of the implementing classes
  * 2) the variable references are initialized inside the constructor
  *   If more than classes are implementing the same interface, make sure to tell
  *   the Spring which object to inject using the @Qualifier annotation, or use the
- *  Primary annotation to avoid getting exception.
- * 3) a corresponding methods are created to implement the business logic
+ *  Primary annotation to avoid getting an exception.
+ * 3) corresponding methods are created to implement the business logic
  */
 @Component
 public class CommentService {
