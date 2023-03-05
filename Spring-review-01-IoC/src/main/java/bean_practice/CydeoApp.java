@@ -9,19 +9,23 @@ import stereotype_annotations.model.ExtraHours;
 import stereotype_annotations.model.Microservices;
 
 public class CydeoApp {
-    //how to create spring container ?
+
     public static void main(String[] args) {
+        //how to create spring container ?
         ApplicationContext container =
-                new AnnotationConfigApplicationContext(AppConfig.class);
+                new AnnotationConfigApplicationContext(AppConfig.class, NewAppConfig.class);
 
-        DataStructure ds = container.getBean(DataStructure.class);
-        ds.getTotalHours();
-        Microservices ms = container.getBean(Microservices.class);
-        ms.getTotalHours();
+        FullTimeEmployee ft = container.getBean(FullTimeEmployee.class);
+        ft.createAccount();
 
-        ExtraHours extraHours = container.getBean(ExtraHours.class);
+        PartTimeEmployee pt = container.getBean(PartTimeEmployee.class);
+        pt.createAccount();
 
-        System.out.println("extraHours.getHours() = " + extraHours.getHours());
+        String str1 = container.getBean(String.class);
+        System.out.println(str1);
+
+        String str2 = container.getBean(String.class);
+        System.out.println(str2);
     }
 
 }
