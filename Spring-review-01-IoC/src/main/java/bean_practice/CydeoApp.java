@@ -1,12 +1,7 @@
 package bean_practice;
 
-
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import stereotype_annotations.model.DataStructure;
-import stereotype_annotations.model.ExtraHours;
-import stereotype_annotations.model.Microservices;
 
 public class CydeoApp {
 
