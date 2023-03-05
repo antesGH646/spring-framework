@@ -17,8 +17,9 @@ public class CydeoApp {
         Microservices ms = container.getBean(Microservices.class);
         ms.getTotalHours();
 
-        ExtraHours extraHours = container.getBean(ExtraHours.class);
+        ExtraHours ers = container.getBean(ExtraHours.class);
 
-        System.out.println("extraHours.getHours() = " + extraHours.getHours());
+        System.out.println("extraHours.getHours() = " + ers.getHours());
     }
 }
+

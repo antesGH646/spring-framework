@@ -23,12 +23,12 @@ public class ConfigApp {
 
   //  @Bean(name = "pt1")
     @Bean
-    @Primary //this is the default one, a bean is created from this method by default
+    @Primary //this is the default one, a bean is created from class type by default
     PartTimeMentor partTimeMentor() {
         return new PartTimeMentor();
     }
 
-    @Bean(name = "pt2")//a bean will be created when specified in the getBean() method
+    @Bean(name = "pt2")//a bean will be created when specified inside the getBean() method
     PartTimeMentor partTimeMentor2() {
         return new PartTimeMentor();
     }

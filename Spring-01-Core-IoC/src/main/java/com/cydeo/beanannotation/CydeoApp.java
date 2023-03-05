@@ -14,14 +14,16 @@ public class CydeoApp {
        FullTimeMentor fm  = container.getBean(FullTimeMentor.class);
        fm.createAccount();
 
-      //if you have multiple objects of the same type must specify it
-      // in the Configuration, give it a name inside the @Bean() annotation
+      //for multiple objects of the same type it is specified in the Configuration by give
+      // it a name inside the @Bean() annotation, here pass the name to tell the spring
        PartTimeMentor pm  = container.getBean("pt2",PartTimeMentor.class);
        pm.createAccount();
 
-       //creating beans/objects from classes that you didn't create or cannot edit
-        String str = container.getBean(String.class);
+        String str = container.getBean("str1",  String.class);
         System.out.println(str.toUpperCase());
+
+        System.out.println(container.getBean("str2",String.class).toLowerCase());
+
         Integer integer = container.getBean(Integer.class);
         System.out.println(integer.equals(100));
     }
