@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/car")
 public class CarController {
 
-    @RequestMapping("/info1")//localhost:8080/car/info?make=Honda
+    @RequestMapping("/info1")//localhost:8080/car/info1?make=Honda
     public String carInfo(@RequestParam String make,  Model model) {
         model.addAttribute("make", make);
         return "/car/car-info";
     }
 
-    @RequestMapping("/info2")//localhost:8080/car/info?make=Honda&year=2019
+    @RequestMapping("/info2")//localhost:8080/car/info2?make=Honda&year=2019
     public String carInfo1(@RequestParam String make, @RequestParam Integer year,  Model model) {
-        model.addAttribute("make", make);
+        model.addAttribute("make", make);//make is the view that carries/pass the java object
         model.addAttribute("year", year);
         return "/car/car-info";
     }

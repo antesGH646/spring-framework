@@ -1,6 +1,5 @@
 package com.cydeo.service;
 
-import com.cydeo.exception.BadRequestException;
 import com.cydeo.model.Account;
 import com.cydeo.model.Transaction;
 

@@ -10,8 +10,10 @@ import org.springframework.stereotype.Component;
  */
 @Component
 //@Primary //to tell Spring to create a default bean from this class
-@Qualifier("EMAIL")//using custom in case the class names are too long
+@Qualifier("EMAIL")//customizing since the class name is too long
 public class EmailCommentNotificationProxy implements CommentNotificationProxy{
+
+    //suppose that this method is implementing a business logic, this is how the abstract design works
     @Override
     public void sendComment(Comment comment) {
         System.out.println("Sending email notification implementation");

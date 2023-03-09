@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 /**
- * The service package is used to store the manager class that defines references of
+ * The service package is used to store the manager class that defines references of all
  * the implementing classes and initializes the references in the constructor. In this
- * class all the implementing class references are encapsulated. Corresponding methods
+ * class all the implementing classes' references are encapsulated. Corresponding methods
  * are created in manager class too.
  * Flow:
- * 1) define encapsulated variables of the implementing classes
+ * 1) define encapsulated variables of the implementing classes, make them private and final
  * 2) the variable references are initialized inside the constructor
  *   If more than classes are implementing the same interface, make sure to tell
  *   the Spring which object to inject using the @Qualifier annotation, or use the

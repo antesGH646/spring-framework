@@ -1,10 +1,16 @@
 package com.cydeo.service.impl;
 
+import com.cydeo.enums.AccountType;
+import com.cydeo.exception.AccountOwnershipException;
 import com.cydeo.exception.BadRequestException;
+import com.cydeo.exception.BalanceNotSufficientException;
+import com.cydeo.exception.UnderConstructionException;
 import com.cydeo.model.Account;
 import com.cydeo.model.Transaction;
 import com.cydeo.repository.AccountRepository;
+import com.cydeo.repository.TransactionRepository;
 import com.cydeo.service.TransactionService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
@@ -15,17 +21,24 @@ import java.util.UUID;
 @Component
 public class TransactionServiceImpl implements TransactionService {
 
+    @Value("${under_construction}")
+    private boolean underConstruction;
     private final AccountRepository accountRepository;
+    private final TransactionRepository transactionRepository;
 
-    public TransactionServiceImpl(AccountRepository accountRepository) {
+    public TransactionServiceImpl(AccountRepository accountRepository,
+                                  TransactionRepository transactionRepository) {
         this.accountRepository = accountRepository;
+        this.transactionRepository = transactionRepository;
     }
 
     /**
-     * Trows exception if the:
+     * The method validates the account, checks account's ownership, makes a transfer
+     * updates the sender's and receiver's balances after a successful transfer otherwise
+     * it throws an exception if the:
      *  -sender or receiver is null
      *  -sender and receiver is the same account
-     *  -sender has enough balance
+     *  -sender has no enough balance
      *  -if both accounts are checking, if not, one of them saving, it needs to be same userId
      * @param sender
      * @param receiver
@@ -37,10 +50,71 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Transaction makeTransfer(Account sender, Account receiver, BigDecimal amount,
                                     Date creationDate, String message) {
+        if (!underConstruction) {
+            validateAccount(sender, receiver);
+            checkAccountOwnership(sender, receiver);
+            //validating if the sender has enough balance otherwise must throw exception
+            executeBalanceAndUpdateIfRequired(amount, sender, receiver);
 
-        validateAccount(sender,receiver);
+            //After the transaction and money transfer is completed, create transaction object save/return it
+            Transaction transaction = Transaction.builder().amount(amount).sender(sender.getId())
+                    .receiver(receiver.getId()).creationDate(creationDate).message(message).build();
 
-        return null;
+            return transactionRepository.save(transaction);
+
+        } else {
+            throw new UnderConstructionException("App is under construction,try again later.");
+        }
+    }
+
+    /**
+     * makes a transfer if the sender's balance is more than the amount needed to
+     * transfer, otherwise it throws exception
+     * When a transfer is made, both the senders and receiver's balance must be updated
+     * @param amount
+     * @param sender
+     * @param receiver
+     */
+    private void executeBalanceAndUpdateIfRequired(BigDecimal amount,
+                                                   Account sender, Account receiver) {
+        if(checkSenderBalance(sender, amount)) {
+            //make balance transfer between sender and receiver, make the update
+           sender.setBalance(sender.getBalance().subtract(amount));//updating when an amount is subtracted
+           receiver.setBalance(receiver.getBalance().add(amount));//updating when an amount is added
+        }
+        else {
+            //throw BalanceNotSufficientException
+            throw new BalanceNotSufficientException("Balance is not enough for this transfer.");
+        }
+    }
+
+    /**
+     * Verifies if the sender has enough balance to send or not
+     * @param sender
+     * @param amount
+     * @return
+     */
+    private boolean checkSenderBalance(Account sender, BigDecimal amount) {
+        //sender balance is less than zero will return false
+        return sender.getBalance().subtract(amount).compareTo(BigDecimal.ZERO) >= 0;
+    }
+
+    /**
+     * checks if one of the account is saving
+     * throws an exception if the sender and receiver is the same
+     * @param sender
+     * @param receiver
+     */
+    private void checkAccountOwnership(Account sender, Account receiver)
+            throws AccountOwnershipException {
+
+     //checks if the account is saving, the sender or receiver is not the same, otherwise throws exception
+        if ((sender.getAccountType().equals(AccountType.SAVING)||
+                receiver.getAccountType().equals(AccountType.SAVING))
+                && !sender.getUserId().equals(receiver.getUserId())) {
+            throw new AccountOwnershipException("Since you are using a savings account, " +
+                    "the sender and receiver userId must be the same.");
+        }
     }
 
     /**
@@ -54,21 +128,17 @@ public class TransactionServiceImpl implements TransactionService {
     private void validateAccount(Account sender, Account receiver) {
         //is any of the account null
         //are the accounts the same
-        //does the account exist in the database
-        if(sender == null || receiver == null) {
-            throw new BadRequestException("Sender or receiver cannot be null");
+        //does the account exist in the database (repository)
+        if(sender==null||receiver==null){
+            throw new BadRequestException("Sender or Receiver cannot be null");
         }
 
-        if(sender.getId().equals(receiver.getId())) {
-            throw new BadRequestException(
-                    "The Sender Account needs to be different the the Receiver Account");
+        if(sender.getId().equals(receiver.getId())){
+            throw new BadRequestException("Sender account needs to be different than receiver");
         }
-
+        //verify if we have sender and receiver in the database
         findAccountById(sender.getId());
-
         findAccountById(receiver.getId());
-
-        validateAccount(sender,receiver);
     }
 
     private void findAccountById(UUID id) {
@@ -77,6 +147,6 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     public List<Transaction> findAllTransaction() {
-        return null;
+        return transactionRepository.findAll();
     }
 }

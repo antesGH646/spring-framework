@@ -35,13 +35,13 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public Account createNewAccount(BigDecimal balance, Date creationDate,
                                     AccountType accountType, Long userId) {
-       //create an account
+       //create an account object
         Account account = Account.builder().id(UUID.randomUUID())
                 .userId(userId).balance(balance).accountType(accountType)
                 .creationDate(creationDate).build();
-        //save into the database
+        //saving the account object into the database
 
-        //return the created object
+        //returning the created account object
 
         return accountRepository.save(account);
     }
