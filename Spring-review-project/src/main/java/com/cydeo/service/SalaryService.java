@@ -11,7 +11,8 @@ public class SalaryService {
     HoursRepository hoursRepository;
     EmployeeRepository employeeRepository;
 
-    public SalaryService(@Qualifier("RH") HoursRepository hoursRepository, EmployeeRepository employeeRepository) {
+    public SalaryService(@Qualifier("RH") HoursRepository hoursRepository,
+                         EmployeeRepository employeeRepository) {
         this.hoursRepository = hoursRepository;
         this.employeeRepository = employeeRepository;
     }
@@ -20,6 +21,5 @@ public class SalaryService {
         //HourlyRate * RegularHours
         //65*40
         System.out.println(employeeRepository.getHourlyRate() * hoursRepository.getHours());
-
     }
 }
