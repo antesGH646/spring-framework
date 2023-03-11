@@ -40,12 +40,12 @@ public class TransactionServiceImpl implements TransactionService {
      *  -sender and receiver is the same account
      *  -sender has no enough balance
      *  -if both accounts are checking, if not, one of them saving, it needs to be same userId
-     * @param sender
-     * @param receiver
-     * @param amount
-     * @param creationDate
-     * @param message
-     * @return
+     * @param sender Account
+     * @param receiver Account
+     * @param amount BigDecimal
+     * @param creationDate Date
+     * @param message String
+     * @return a transaction
      */
     @Override
     public Transaction makeTransfer(Account sender, Account receiver, BigDecimal amount,
@@ -60,7 +60,7 @@ public class TransactionServiceImpl implements TransactionService {
             Transaction transaction = Transaction.builder().amount(amount).sender(sender.getId())
                     .receiver(receiver.getId()).creationDate(creationDate).message(message).build();
 
-            return transactionRepository.save(transaction);
+            return transactionRepository.addTransaction(transaction);
 
         } else {
             throw new UnderConstructionException("App is under construction,try again later.");
@@ -71,9 +71,9 @@ public class TransactionServiceImpl implements TransactionService {
      * makes a transfer if the sender's balance is more than the amount needed to
      * transfer, otherwise it throws exception
      * When a transfer is made, both the senders and receiver's balance must be updated
-     * @param amount
-     * @param sender
-     * @param receiver
+     * @param amount amount of transfer
+     * @param sender account
+     * @param receiver account
      */
     private void executeBalanceAndUpdateIfRequired(BigDecimal amount,
                                                    Account sender, Account receiver) {
@@ -90,9 +90,9 @@ public class TransactionServiceImpl implements TransactionService {
 
     /**
      * Verifies if the sender has enough balance to send or not
-     * @param sender
-     * @param amount
-     * @return
+     * @param sender Account
+     * @param amount Account
+     * @return boolean if the sender and receiver are equal or not
      */
     private boolean checkSenderBalance(Account sender, BigDecimal amount) {
         //sender balance is less than zero will return false
@@ -102,8 +102,8 @@ public class TransactionServiceImpl implements TransactionService {
     /**
      * checks if one of the account is saving
      * throws an exception if the sender and receiver is the same
-     * @param sender
-     * @param receiver
+     * @param sender Account
+     * @param receiver Account
      */
     private void checkAccountOwnership(Account sender, Account receiver)
             throws AccountOwnershipException {
@@ -122,8 +122,8 @@ public class TransactionServiceImpl implements TransactionService {
      *    -if any of the account is null
      *    -if account ids are the same(same account)
      *    -if the accounts exist in the database(repository)
-     * @param sender
-     * @param receiver
+     * @param sender Account
+     * @param receiver Account
      */
     private void validateAccount(Account sender, Account receiver) {
         //is any of the account null
@@ -141,12 +141,20 @@ public class TransactionServiceImpl implements TransactionService {
         findAccountById(receiver.getId());
     }
 
+    /**
+     * Finds an account by its id
+     * @param id id
+     */
     private void findAccountById(UUID id) {
         accountRepository.findById(id);
     }
 
+    /**
+     * finds and returns a list of transactions
+     * @return list of transactions
+     */
     @Override
     public List<Transaction> findAllTransaction() {
-        return transactionRepository.findAll();
+        return transactionRepository.allTransactions();
     }
 }

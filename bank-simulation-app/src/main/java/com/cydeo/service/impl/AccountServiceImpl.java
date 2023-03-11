@@ -19,6 +19,7 @@ public class AccountServiceImpl implements AccountService {
     //this class and the AccountRepository
    private final AccountRepository accountRepository;
 
+   //A constructor taking the AccountRepository as a parameter
     public AccountServiceImpl(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
@@ -26,11 +27,11 @@ public class AccountServiceImpl implements AccountService {
     /**
      * This method creates account, stores the accounts into the database,
      * and return the created object
-     * @param balance
-     * @param creationDate
-     * @param accountType
-     * @param userId
-     * @return
+     * @param balance BigDecimal
+     * @param creationDate Date
+     * @param accountType AccountType
+     * @param userId id
+     * @return added account
      */
     @Override
     public Account createNewAccount(BigDecimal balance, Date creationDate,
@@ -43,11 +44,11 @@ public class AccountServiceImpl implements AccountService {
 
         //returning the created account object
 
-        return accountRepository.save(account);
+        return accountRepository.addAccount(account);
     }
 
     @Override
     public List<Account> listAllAccount() {
-        return accountRepository.findAll();
+        return accountRepository.allAccounts();
     }
 }

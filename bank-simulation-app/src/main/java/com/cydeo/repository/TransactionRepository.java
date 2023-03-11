@@ -9,14 +9,24 @@ import java.util.List;
 @Component
 public class TransactionRepository{
 
+    //stores list of transactions
     public static List<Transaction> transactionList = new ArrayList<>();
 
-    public Transaction save(Transaction transaction){
-        transactionList.add(transaction);
-        return transaction;
+    /**
+     * Adds a transaction into the list and returns it
+     * @param transaction AccountType
+     * @return the list of AccountType
+     */
+    public Transaction addTransaction(Transaction transaction){
+        transactionList.add(transaction);//adds the transaction into a list
+        return transaction; //returns an individual transaction
     }
 
-    public List<Transaction> findAll() {
+    /**
+     * Holds individual trasac
+     * @return a list of transactions
+     */
+    public List<Transaction> allTransactions() {
         return transactionList;
     }
 }
