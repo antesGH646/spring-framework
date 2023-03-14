@@ -19,9 +19,8 @@ public class MentorController {
             mentorList.add(new Mentor("Adam","Smith",45, Gender.MALE));
             mentorList.add(new Mentor("James","Bond",42, Gender.MALE));
             mentorList.add(new Mentor("Marry","Anderson",35, Gender.FEMALE));
-            //accepts 2 params: a name to use in the Thymeleaf, the data or object to integrate
-            model.addAttribute("mentors", mentorList);//mentor is the view that carries the java object
-        //the package name / the thymeleaf name, might need slash in the beginning
-        return "/mentor/mentor-list";
+            //addAttribute() accepts 2 parameters: Thymeleaf name to integrate and Java object
+            model.addAttribute("mentors", mentorList);//mentors carries the java object for integration in the Thymeleaf
+        return "/mentor/mentor-list";//the packageName/thymeleafName, might need slash in the beginning
     }
 }
