@@ -23,7 +23,7 @@ public class TransactionRepository{
     }
 
     /**
-     * Holds individual trasac
+     * Holds individual transactions
      * @return a list of transactions
      */
     public List<Transaction> allTransactions() {
