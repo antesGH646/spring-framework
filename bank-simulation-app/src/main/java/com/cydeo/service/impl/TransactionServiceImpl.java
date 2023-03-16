@@ -55,7 +55,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Transaction makeTransfer(Account sender, Account receiver, BigDecimal amount,
                                     Date creationDate, String message) {
-        if (!underConstruction) {
+        if (!underConstruction) {//if under construction is not true (false) works fine
             validateAccount(sender, receiver);
             checkAccountOwnership(sender, receiver);
             //validating if the sender has enough balance otherwise must throw exception
@@ -64,7 +64,7 @@ public class TransactionServiceImpl implements TransactionService {
             Transaction transaction = Transaction.builder().amount(amount).sender(sender.getId())
                     .receiver(receiver.getId()).creationDate(creationDate).message(message).build();
             return transactionRepository.addTransaction(transaction);
-        } else {
+        } else {//if under construction is true stops the execution (throws exception)
             throw new UnderConstructionException("App is under construction,try again later.");
         }
     }
