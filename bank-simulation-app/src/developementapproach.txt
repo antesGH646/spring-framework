@@ -1,0 +1,21 @@
+General Development Approach:
+
+1)create an enum with 2 fields saving and checking, because
+they are constant name throughout the application
+2) Create model classes of encapsulated fields Account and Transaction
+NB. The sender and the receiver must have a unique ID (UUID)
+3) Define the business logic under the services package with 2 interfaces
+ - AccountService and Transaction services each with abstract methods.
+   One about creating account and transactions and the other method about
+   seeing/returning the list of accounts and transactions.
+   Abstract methods for Account Service define createAccount and list of All accounts
+   Abstract methods for Transaction Service define make transfer and list of All transactions
+   You may name the abstract methods whatever you want.
+ - Create implementing classes of the interfaces under the impl sub-folder
+4) Since there is no database access for a time being, simulate the source
+    by creating repository classes in the repository folder for both
+    Account and transaction.
+    -Create a list for accounts, add an account into the list, return the list, find and account by id
+    -Create a list for transactions, add a transaction into the list, return the list
+5) Inject the repository methods into the services (create private final objects and make constructors)
+    to use the list of accounts or the list of transactions
