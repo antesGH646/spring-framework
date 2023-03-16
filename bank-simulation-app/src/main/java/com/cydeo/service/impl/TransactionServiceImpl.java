@@ -55,7 +55,7 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     public Transaction makeTransfer(Account sender, Account receiver, BigDecimal amount,
                                     Date creationDate, String message) {
-        if (!underConstruction) {//if under construction is not true (false) works fine
+        if (!underConstruction) {//if under construction is not false (true) jumps to the else block
             validateAccount(sender, receiver);
             checkAccountOwnership(sender, receiver);
             //validating if the sender has enough balance otherwise must throw exception
