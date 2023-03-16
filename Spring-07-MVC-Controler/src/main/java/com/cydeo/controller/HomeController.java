@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
-    @RequestMapping ("/rs")//pass the name, associates responding to the http request
+    @RequestMapping ("/rs")//rs is the end point, responds to the http request
     public String ourRestaurant() {
-        return "restaurant.html"; //returns the html name
+        return "restaurant.html"; //returns the html name that is displayed to the UI
     }
 
-    @RequestMapping ("/home")//pass the name
+    @RequestMapping ("/home")//pass the name of the end point
     public String home() {
         return "home.html"; //returns the html name requested to display on the browser
     }

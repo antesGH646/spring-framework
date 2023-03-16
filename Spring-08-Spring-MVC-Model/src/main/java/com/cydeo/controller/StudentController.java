@@ -33,4 +33,11 @@ public class StudentController {
 
         return "student/welcome"; //Thymeleaf template not an html file
     }
+
+    @RequestMapping("/welcome")
+    public String student2(Model model) {
+        Student student = new Student(1, "Adam", "Smith");
+        model.addAttribute("student", student);
+        return "student/welcome";
+    }
 }

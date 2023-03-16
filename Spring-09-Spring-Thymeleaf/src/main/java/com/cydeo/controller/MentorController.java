@@ -20,18 +20,19 @@ public class MentorController {
     public String showForm(Model model){
 
         model.addAttribute("mentor",new Mentor());
-
+        //to display the list into the UI form
         List<String> batchList = Arrays.asList("JD1","JD2","EU1","EU2","B18","B20");
         model.addAttribute("batchList",batchList);
 
         return "mentor/mentor-register";
     }
 
+    //we can have different http methods for the same end point
     @PostMapping("/confirm")
     public String showForm2(@ModelAttribute("mentor") Mentor mentor){
-
-//        return "mentor/mentor-confirmation";
-        return "redirect:/mentor/register";
+        System.out.println(mentor.toString());
+        return "mentor/mentor-confirmation";
+       // return "redirect:/mentor/register";
     }
 
 }
