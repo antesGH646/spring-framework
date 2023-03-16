@@ -18,7 +18,7 @@ public class AccountController {
     @GetMapping("/index")
     public String getIndex(Model model) {
         model.addAttribute("accountList", accountService.listAllAccount());
-        return "accounts/index";//returns the index html file from the accounts sub folder under the templates
+        return "account/index";//returns the index html file from the accounts sub folder under the templates
     }
 
     @GetMapping("/create-form")
