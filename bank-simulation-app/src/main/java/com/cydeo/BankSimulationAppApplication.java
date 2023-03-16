@@ -16,18 +16,17 @@ import java.util.Date;
 public class BankSimulationAppApplication {
 
     public static void main(String[] args) throws AccountOwnershipException {
-        //Creating and storing a container
         ApplicationContext container = SpringApplication.run(BankSimulationAppApplication.class, args);
 
         //get account and transaction service beans
         AccountService accountService = container.getBean(AccountService.class);
         TransactionService transactionService = container.getBean(TransactionService.class);
 
-        //create 2 accounts a sender and a receiver.
+        //create 2 account sender and receiver.
         Account sender = accountService.createNewAccount(BigDecimal.valueOf(70),new Date(), AccountType.CHECKING,1L);
 
         Account receiver = accountService.createNewAccount(BigDecimal.valueOf(50),new Date(), AccountType.CHECKING,2L);
-       // Account receiver2 = null;
+        Account receiver2 = null;
         accountService.listAllAccount().forEach(System.out::println);
 
         transactionService.makeTransfer(sender,receiver,new BigDecimal(40),new Date(),"Transaction 1");
@@ -35,5 +34,21 @@ public class BankSimulationAppApplication {
         System.out.println(transactionService.findAllTransaction().get(0));
 
         accountService.listAllAccount().forEach(System.out::println);
+//        //get account and transaction service beans
+//        AccountService accountService = container.getBean(AccountService.class);
+//        TransactionService transactionService = container.getBean(TransactionService.class);
+//
+//        //create 2 account sender and receiver.
+//        Account sender = accountService.createNewAccount(BigDecimal.valueOf(70),new Date(), AccountType.CHECKING,1L);
+//
+//        Account receiver = accountService.createNewAccount(BigDecimal.valueOf(50),new Date(), AccountType.CHECKING,2L);
+//        Account receiver2 = null;
+//        accountService.listAllAccount().forEach(System.out::println);
+//
+//        transactionService.makeTransfer(sender,receiver,new BigDecimal(40),new Date(),"Transaction 1");
+//
+//        System.out.println(transactionService.findAllTransaction().get(0));
+//
+//        accountService.listAllAccount().forEach(System.out::println);
     }
 }

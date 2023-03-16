@@ -1,5 +1,6 @@
 package com.cydeo.model;
 
+import com.cydeo.enums.AccountStatus;
 import com.cydeo.enums.AccountType;
 import lombok.Builder;
 import lombok.Data;
@@ -22,4 +23,5 @@ public class Account {
     private AccountType accountType;//to handle checking and saving accounts
     private Date creationDate;//the handle the creating date
     private Long userId; //to uniquely identify a user
+    private AccountStatus accountStatus;
 }
