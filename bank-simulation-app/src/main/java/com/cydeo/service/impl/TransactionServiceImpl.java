@@ -77,19 +77,21 @@ public class TransactionServiceImpl implements TransactionService {
      */
     private void executeBalanceAndUpdateIfRequired(BigDecimal amount,
                                                    Account sender, Account receiver) {
+        //if the balance is within the required limit, allows transfer, update the balances
         if(checkSenderBalance(sender, amount)) {
             //make balance transfer between sender and receiver, make the update
            sender.setBalance(sender.getBalance().subtract(amount));//updating when an amount is subtracted
            receiver.setBalance(receiver.getBalance().add(amount));//updating when an amount is added
         }
-        else {
-            //throw BalanceNotSufficientException
+        else { //throw BalanceNotSufficientException, if the balance is not within the limit
             throw new BalanceNotSufficientException("Balance is not enough for this transfer.");
         }
     }
 
     /**
      * Verifies if the sender has enough balance to send or not
+     * NB. Since the balance is BigDecimal type, BigDecimal has subtract()
+     * and compareTo() methods to work with numbers to subtract an compare two numbers
      * @param sender Account
      * @param amount Account
      * @return boolean if the sender and receiver are equal or not
@@ -105,9 +107,7 @@ public class TransactionServiceImpl implements TransactionService {
      * @param sender Account
      * @param receiver Account
      */
-    private void checkAccountOwnership(Account sender, Account receiver)
-            throws AccountOwnershipException {
-
+    private void checkAccountOwnership(Account sender, Account receiver) {
      //checks if the account is saving, the sender or receiver is not the same, otherwise throws exception
         if ((sender.getAccountType().equals(AccountType.SAVING)||
                 receiver.getAccountType().equals(AccountType.SAVING))
@@ -120,30 +120,28 @@ public class TransactionServiceImpl implements TransactionService {
     /**
      * Trows exception if the:
      *    -if any of the account is null
-     *    -if account ids are the same(same account)
+     *    -if account ids are of the same account
      *    -if the accounts exist in the database(repository)
      * @param sender Account
      * @param receiver Account
      */
     private void validateAccount(Account sender, Account receiver) {
-        //is any of the account null
-        //are the accounts the same
-        //does the account exist in the database (repository)
+        //validate if any of the account is null
         if(sender==null||receiver==null){
             throw new BadRequestException("Sender or Receiver cannot be null");
         }
-
+        //validate if the accounts are the same
         if(sender.getId().equals(receiver.getId())){
             throw new BadRequestException("Sender account needs to be different than receiver");
         }
-        //verify if we have sender and receiver in the database
+        //verify if the sender and receiver exist in the database (repository)
         findAccountById(sender.getId());
         findAccountById(receiver.getId());
     }
 
     /**
      * Finds an account by its id
-     * @param id id
+     * @param id UUID
      */
     private void findAccountById(UUID id) {
         accountRepository.findById(id);
