@@ -21,6 +21,8 @@ import java.util.UUID;
 @Component
 public class TransactionServiceImpl implements TransactionService {
 
+    //@Value() read properties file accepts the value with "${key}"
+    //For everything to work properly, the key is set to false in the properties files
     @Value("${under_construction}")
     private boolean underConstruction;
     private final AccountRepository accountRepository;
@@ -33,13 +35,16 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     /**
-     * The method validates the account, checks account's ownership, makes a transfer
-     * updates the sender's and receiver's balances after a successful transfer otherwise
-     * it throws an exception if the:
-     *  -sender or receiver is null
-     *  -sender and receiver is the same account
-     *  -sender has no enough balance
-     *  -if both accounts are checking, if not, one of them saving, it needs to be same userId
+     * 1) The method validates the account, checks account's ownership, makes a transfer
+     *  updates the sender's and receiver's balances after a successful transfer otherwise
+     *  it will not make a transfer if the:
+     *   -sender or receiver is null
+     *   -sender and receiver is the same account
+     *   -sender has no enough balance
+     *   -if both accounts are checking, if not, one of them saving, it needs to be same userId
+     * 2)  If the application is under construction or deployment transfer will be blocked. If it
+     *   is not under construction a user would be able to make transfer otherwise the application
+     *   will throw an exception to block execution and will display a message.
      * @param sender Account
      * @param receiver Account
      * @param amount BigDecimal
@@ -55,13 +60,10 @@ public class TransactionServiceImpl implements TransactionService {
             checkAccountOwnership(sender, receiver);
             //validating if the sender has enough balance otherwise must throw exception
             executeBalanceAndUpdateIfRequired(amount, sender, receiver);
-
             //After the transaction and money transfer is completed, create transaction object save/return it
             Transaction transaction = Transaction.builder().amount(amount).sender(sender.getId())
                     .receiver(receiver.getId()).creationDate(creationDate).message(message).build();
-
             return transactionRepository.addTransaction(transaction);
-
         } else {
             throw new UnderConstructionException("App is under construction,try again later.");
         }
