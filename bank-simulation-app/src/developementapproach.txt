@@ -19,3 +19,6 @@ NB. The sender and the receiver must have a unique ID (UUID)
     -Create a list for transactions, add a transaction into the list, return the list
 5) Inject the repository methods into the services (create private final objects and make constructors)
     to use the list of accounts or the list of transactions
+6) Create business logic validating methods, if the condition is not valid throw exceptions to display
+ messages. The common practice is to place Exception classes in the exceptions package. For example, you
+ can validate the balance, the user, the account, update after transaction, finding Accounts by id, etc.
