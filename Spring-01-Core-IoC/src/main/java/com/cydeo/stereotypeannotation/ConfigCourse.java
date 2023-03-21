@@ -9,5 +9,5 @@ import org.springframework.context.annotation.Configuration;
 //directing Spring to look POJOs outside in different package
 //@ComponentScan(basePackages = "cydeo.loosely_coupled")
 
-@ComponentScan //directs Spring find and look implementing classes with @Component in the current package
+@ComponentScan //directs Spring to find and look implementing classes with @Component in the current package
 public class ConfigCourse {}

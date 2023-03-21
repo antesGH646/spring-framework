@@ -8,10 +8,10 @@ public class CydeoApp {
         //creating container and telling it from which Config file to get direction
         //by passing the Config files name/s
         ApplicationContext container = new AnnotationConfigApplicationContext(
-                ConfigApp.class, ConfigAny.class);//passing the Config file
+                ConfigApp.class, ConfigAny.class);//can pass multiple Config files
 
         //telling the container what type of bean to create by passing the class name
-       FullTimeMentor fm  = container.getBean(FullTimeMentor.class);
+       FullTimeMentor fm  = container.getBean(FullTimeMentor.class);//means: create a bean from this class
        fm.createAccount();
 
       //for multiple objects of the same type it is specified in the Configuration by give
