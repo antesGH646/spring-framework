@@ -8,14 +8,15 @@
 
 <body>
 <!--displaying java objects on the UI through the defined model attribute carriers in the Controller
-model attributes (java objects carriers) that come from the controller are enclosed by ${}-->
-<h2 th:text="${name}"></h2>
-<h2 th:text="${course}"></h2>
-<h2 th:text="${subject}"></h2>
-<h2 th:text="${id}"></h2>
-<h2 th:text="${numbers.get(3)}"></h2>
-<h2 th:text="${student.getFirstName()}"></h2>
-<h2 th:text="${student.lastName}"></h2>
+model attributes (java objects carriers) that come from the controller are enclosed by ${}
+any messages are enclosed by 'msg'-->
+<h2 th:text="${'Name: ' + name}"></h2>
+<h2 th:text="${'Course: ' + course}"></h2>
+<h2 th:text="${'Subject: ' + subject}"></h2>
+<h2 th:text="${'Random ID: ' + id}"></h2>
+<h2 th:text="${'4th number: ' + numbers.get(3)}"></h2>
+<h2 th:text="${'First Name: ' + student.getFirstName()}"></h2>
+<h2 th:text="${'Last Name: ' + student.lastName}"></h2>
 
 </body>
 
