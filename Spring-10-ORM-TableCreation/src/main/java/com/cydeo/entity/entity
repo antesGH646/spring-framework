@@ -1,5 +1,0 @@
--what ever classes that interact with the data base are placed
-  in the entity/model package. The classes cannot be final, because they are
-  intended to be extended. They have also @Entity annotation on the class level.
-  Every table must has a primary key with @Id annotation on the defined field level.
--what ever classes that with the UI or API are placed in the DTO package

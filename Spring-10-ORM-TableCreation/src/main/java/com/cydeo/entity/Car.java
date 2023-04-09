@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
-@Table(name="cars")
+@Table(name="cars")//give it a name instead of the default name
 @NoArgsConstructor
 @Data
 public class Car {
