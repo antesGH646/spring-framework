@@ -3,7 +3,7 @@ package com.cydeo.entity;
 import javax.persistence.Entity;
 import java.math.BigDecimal;
 
-@Entity
+@Entity //marks to creat a table from this class, NB. a child class is annotated with entity
 public class CreditAccount extends Account{
     BigDecimal creditLimit;
 }

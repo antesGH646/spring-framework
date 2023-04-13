@@ -12,14 +12,14 @@ public class Student {
     //to provide primary keys automatically
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name="student_first_name")//to change default column names
+    @Column(name="student_first_name")//using custom name instead of using a default column names
     private String firstName;
     @Column(name="student_last_name")//to change default column names
     private String lastName;
 
     private String email;
 
-    @Transient//do want to add this in the table columns
+    @Transient//marks to exclude or prevents creating a column from this field in the table
     private String city;
 
     //to add dates
@@ -31,6 +31,6 @@ public class Student {
     private LocalDate birthDateTime;
 
     //using enums
-    @Enumerated(EnumType.STRING)//otherwise it will use integer, or ordinal is 0 & 1
+    @Enumerated(EnumType.STRING)//marks to use defined enum fields, otherwise it will use integer, or ordinal is 0 & 1
     private Gender gender;
 }
