@@ -2,11 +2,8 @@ package com.cydeo.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
@@ -18,7 +15,8 @@ public class Employee {
     private String firstName;
     private String lastName;
     private String email;
-    private Date hire_date;
+    @Column(columnDefinition = "Date")
+    private LocalDate hire_date;
     private String department;
     private String gender;
     private int salary;
