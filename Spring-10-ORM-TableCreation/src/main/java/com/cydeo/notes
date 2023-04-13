@@ -1,8 +1,24 @@
--what ever classes that interact with the data base are placed
-  in the entity/model package. The classes cannot be final, because they are
-  intended to be extended. They have also @Entity annotation on the class level.
-  Every table must has a primary key with @Id annotation on the defined field level.
--what ever classes that interact with the UI or API are placed in the DTO package.
--repository replace all the process of defining service interfaces and their implementations.
-  JpaRepository interface has all the service methods that you can think of, if you need additional
-  methods, you may create custom methods.
+- What ever classes that interact with the data base are placed
+   in the entity/model package. The classes cannot be final, because they are
+   intended to be extended. They have also @Entity annotation on the class level.
+   Every table must has a primary key with @Id annotation on the field level.
+
+- What ever classes that interact with the UI or API are placed in the DTO package.
+
+- repository replace all the process of defining service interfaces and their implementations.
+   JpaRepository interface has all the service methods that you can think of, if you need additional
+   methods, you may create custom methods.
+
+- creating of tables from POJO classes is configured in the properties file. There are two ways to
+  create tables.
+    - First by executing sql files under the resources package plus "spring.sql.init.mode=always"
+      properties file configurations.
+    - Second creating tables from annotated (@Entity and @Id, etc) Java class objects when using hibernate
+      plus "spring.jpa.---" properties file configurations.
+    Note that:
+     - First Need to add the spring-boot-starter-data-jpa and postgresql dependencies in the pom.xml
+     - Spring first executes the data sql file to create tables, then the entity configurations. To avoid failures
+       you may either comment the spring.sql.init.mode=always configuration or add the
+       spring.jpa.defer-datasource-initialization=true configuration to execute the entities first
+
+-
