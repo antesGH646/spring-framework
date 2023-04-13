@@ -5,9 +5,13 @@
 
 - What ever classes that interact with the UI or API are placed in the DTO package.
 
-- repository replace all the process of defining service interfaces and their implementations.
-   JpaRepository interface has all the service methods that you can think of, if you need additional
-   methods, you may create custom methods.
+- you may either create data and save it to the database using DAO pattern (creating interfaces, implementing classes,
+    and data generator classes) or use JPA repository from spring boot (you just inherit it, no need to create methods, it
+    has all the methods that you might think of or need, if you need more you may add custom methods)
+   JPA repository replace all the process of defining service interfaces and their implementations.
+   JpaRepository interface accepts two parameters the table name and the primary key type for example,
+    ... extends JpaRepository<Car, Long>
+   To simply use/call the existing defined methods just inject your child interface into your data generator class.
 
 - creating of tables from POJO classes is configured in the properties file. There are two ways to
   create tables.
@@ -21,4 +25,3 @@
        you may either comment the spring.sql.init.mode=always configuration or add the
        spring.jpa.defer-datasource-initialization=true configuration to execute the entities first
 
--
