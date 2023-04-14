@@ -17,9 +17,13 @@ import java.util.List;
 public class DataGenerator implements CommandLineRunner {
 
     EmployeeRepository employeeRepository;
+    //DepartmentRepository departmentRepository;
+    //RegionRepository regionRepository;
 
     public DataGenerator(EmployeeRepository employeeRepository) {
         this.employeeRepository = employeeRepository;
+       // this.departmentRepository = departmentRepository;
+       // this.regionRepository = regionRepository;
     }
 
     @Override
@@ -27,6 +31,7 @@ public class DataGenerator implements CommandLineRunner {
 
         List<Employee> employeeList = new ArrayList<>();
         List<Department> departmentList = new ArrayList<>();
+        List<Region> regionList = new ArrayList<>();
 
         Employee e1 = new Employee("Berrie", "Manueau", "bmanueau0@dion.ne.jp", LocalDate.of(2006,04,20),154864, Gender.FEMALE);
         Employee e2 = new Employee("Aeriell", "McNee", "amcnee1@google.es", LocalDate.of(2009,01,26),56752, Gender.FEMALE);
@@ -46,7 +51,32 @@ public class DataGenerator implements CommandLineRunner {
         Region r4 = new Region("Quebec'","Canada");
         Region r5 = new Region("Central","Asia");
 
+        //setting employees to departments
+        e1.setDepartment(d1);
+        e2.setDepartment(d2);
+        e3.setDepartment(d3);
+        e3.setDepartment(d4);
+        e3.setDepartment(d5);
+
+        //setting the employees to regions
+        e1.setRegion(r1);
+        e2.setRegion(r2);
+        e3.setRegion(r3);
+        e4.setRegion(r4);
+        e5.setRegion(r5);
+
         employeeList.addAll(Arrays.asList(e1,e2,e3,e4,e5));
         departmentList.addAll(Arrays.asList(d1,d2,d3,d4,d5));
+        regionList.addAll(Arrays.asList(r1,r2,r3,r4,r5));
+
+        employeeRepository.saveAll(employeeList);
+
+        /**
+         *  if employees are set to departments and regions,
+         *  don't need saveAll(), department &region repositories
+         *  so both DepartmentRepository and RegionRepository are deleted from the repository package
+         */
+        // departmentRepository.saveAll(departmentList);
+        //regionRepository.saveAll(regionList);
     }
 }
