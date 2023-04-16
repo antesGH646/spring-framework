@@ -1,5 +1,6 @@
 package com.cydeo.bootstrap;
 
+import com.cydeo.entity.*;
 import com.cydeo.model.*;
 import com.cydeo.enums.Status;
 import com.cydeo.repository.*;
