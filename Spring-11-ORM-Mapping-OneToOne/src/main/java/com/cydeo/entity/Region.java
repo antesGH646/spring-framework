@@ -13,8 +13,8 @@ public class Region extends BaseEntity{
     private String region;
     private String country;
 
-    @OneToOne(mappedBy = "region")
-    private Employee employee;
+    @OneToOne(mappedBy = "region")//marks not to create foreign key, employee has ownership
+    private Employee employee;//has-a-relationship
 
     public Region(String region, String country) {
         this.region = region;

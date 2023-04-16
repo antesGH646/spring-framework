@@ -24,14 +24,15 @@ public class Employee extends BaseEntity{
     private Gender gender;
 
     //telling the Spring to create one-to-one relationship
-    @OneToOne(cascade = CascadeType.ALL)//all actions happen on both existing entities
+    // cascading = changes/actions should occur on both existing entities
+    @OneToOne(cascade = CascadeType.ALL)//all includes all cascading operations
 //    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
     @JoinColumn(name = "department_id")//changing the default name
     private Department department;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)//hibernate needs to know the type of relationship
     @JoinColumn(name = "region_id")
-    private Region region;
+    private Region region;//has-a-relationship
 
     public Employee(String firstName, String lastName, String email,
                     LocalDate hireDate, int salary, Gender gender) {

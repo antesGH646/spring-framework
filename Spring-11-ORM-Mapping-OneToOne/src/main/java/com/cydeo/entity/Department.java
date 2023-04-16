@@ -14,7 +14,7 @@ public class Department extends BaseEntity {
     private String division;
 
     //creating by directional relationship
-    @OneToOne(mappedBy = "department")//do not create foreign key, employee is the owner
+    @OneToOne(mappedBy = "department")//marks not to create foreign key, employee has ownership
     private Employee employee;
 
     public Department(String department, String division) {
