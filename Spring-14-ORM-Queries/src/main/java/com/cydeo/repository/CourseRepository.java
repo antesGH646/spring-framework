@@ -13,6 +13,9 @@ import java.util.stream.Stream;
  * java objects, create methods to manipulate the data, then display it on the UI.
  * When repositories make sure to extend the JpaRepository<repositoryName, dataType>
  * The common ways of writing queries are derived queries and @Query annotation queries.
+ * There is a third option to write queries using Named Queries. The queries can be defined
+ * in a properties file, or in an XML file (very old way). Syntax inside the properties file:
+ * entityName.methodName=query(e.g. select e from Employee Order by salary desc)
  * Note that writing derived queries is good only with methods having 3-4 parameters, otherwise
  * it would be difficult or almost impossible to read and maintain these queries when adding,
  * filtering, comparison, and result size limiting. For this reason you rather use more flexible
