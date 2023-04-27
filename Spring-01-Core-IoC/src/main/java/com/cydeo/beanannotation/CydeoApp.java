@@ -10,7 +10,7 @@ public class CydeoApp {
         ApplicationContext container = new AnnotationConfigApplicationContext(
                 ConfigApp.class, ConfigAny.class);//can pass multiple Config files
 
-        //telling the container what type of bean to create by passing the class name
+        //telling the container to store what type of bean by passing the class name
        FullTimeMentor fm  = container.getBean(FullTimeMentor.class);//means: create a bean from this class
        fm.createAccount();
 

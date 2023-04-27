@@ -3,8 +3,8 @@ package com.cydeo.model;
 import lombok.Data;
 
 /**
- * usually do not get @Component, because it doesn't have implementing methods
- * it only has just attributes, setters, getters, etc
+ * model or entity classes usually do not get @Component, because they don't have implementing methods
+ * they only have attributes, setters, getters, etc.
  * If you are using the lombok annotations you do not need to create constructors
  * and initialize the variable, no need to use the @Autowired annotation
  * model package is used to store encapsulated classes that define the

@@ -14,15 +14,6 @@ public class ConfigCar {
         return car;
     }
 
-    //Person object wants to use Car object, creating Has-A relationship through Autowiring, method calling
-//    @Bean
-//    Person person() {
-//        Person person = new Person();
-//        person.setName("James Bond");
-//        person.setCar(car()); //direct method calling
-//        return person;
-//    }
-
     //Person object wants to use Car object, creating Has-A relationship through Autowiring, passing object
     @Bean
     Person person(Car car) {

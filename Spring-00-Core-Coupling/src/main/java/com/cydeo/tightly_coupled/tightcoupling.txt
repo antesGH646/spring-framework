@@ -10,8 +10,9 @@ As a developer consider the new keyword as a disadvantage. Not only a performanc
 but also the management of the class objects becomes complicated.
 Approach:
 1) Create implementing classes
-2) Create a manager class. Meaning a class that has instances of the implementing classes and initializes
-the instances in its constructor. Then, create methods to call the methods of the implementing classes.
-3) Create a runner class. Since the manager class is accepting instances of the implementing classes,
-new objects of the implementing classes are created. Now an object of the manager can call
-the methods of the manager class
+2) Create a manager class. Meaning a class that has instances of the implementing classes
+    and initializes the instances in its constructor. Then, create methods to call the methods
+    of the implementing classes.
+3) Create a runner class. Since the manager class is accepting instances of the implementing
+    classes, new objects of the implementing classes are created. Now an object of the manager
+    can call the methods of the manager class

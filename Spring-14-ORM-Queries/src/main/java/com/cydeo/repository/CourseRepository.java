@@ -11,7 +11,7 @@ import java.util.stream.Stream;
 /**
  * Use repository when you want to bring data from a database. Since thymeleaf understands
  * java objects, create methods to manipulate the data, then display it on the UI.
- * When repositories make sure to extend the JpaRepository<repositoryName, dataType>
+ * When using repositories make sure to extend the JpaRepository<repositoryName, dataType>
  * The common ways of writing queries are derived queries and @Query annotation queries.
  * There is a third option to write queries using Named Queries. The queries can be defined
  * in a properties file, or in an XML file (very old way). Syntax inside the properties file:

@@ -2,8 +2,9 @@ package com.cydeo.entity;
 
 import com.cydeo.enums.MovieState;
 import com.cydeo.enums.MovieType;
-import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -12,7 +13,8 @@ import java.util.List;
 
 @Entity
 @NoArgsConstructor
-@Data
+@Getter
+@Setter
 public class Movie extends BaseEntity{
     private String name;
     @Column(columnDefinition = "Date")
@@ -31,6 +33,18 @@ public class Movie extends BaseEntity{
             joinColumns = @JoinColumn(name = "movie_id"),//to change the column name
             inverseJoinColumns = @JoinColumn(name = "genre_id")//to change the column name
     )
-
     private List<Genre> genreList;
+
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", releaseDate=" + releaseDate +
+                ", duration=" + duration +
+                ", summary='" + summary + '\'' +
+                ", type=" + type +
+                ", state=" + state +
+                ", price=" + price +
+                '}';
+    }
 }

@@ -2,7 +2,7 @@ package com.cydeo;
 
 import org.springframework.stereotype.Component;
 
-@Component
+@Component//tell the spring to create a bean from this object
 public class OfficeHours {
 
     public int getHours() {
