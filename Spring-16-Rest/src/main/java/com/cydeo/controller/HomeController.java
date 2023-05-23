@@ -15,7 +15,8 @@ public class HomeController {
     private final UserRepository userRepository;
     private final AccountRepository accountRepository;
 
-    public HomeController(UserRepository userRepository, AccountRepository accountRepository) {
+    public HomeController(UserRepository userRepository,
+                          AccountRepository accountRepository) {
         this.userRepository = userRepository;
         this.accountRepository = accountRepository;
     }

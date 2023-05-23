@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
+//Jackson needs Getters and Setters to map
 @Getter
 @Setter
 @NoArgsConstructor

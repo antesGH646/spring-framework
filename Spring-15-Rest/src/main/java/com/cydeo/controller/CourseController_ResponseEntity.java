@@ -18,6 +18,11 @@ public class CourseController_ResponseEntity {
         this.courseService = courseService;
     }
 
+    /**
+     * ResponseEntity class extends from httpEntity
+     * and httpEntity helps to pass headers status ect
+     * @return ResponseEntity
+     */
     @GetMapping
     public ResponseEntity<List<CourseDTO>> getAllCourses(){
         return ResponseEntity
@@ -30,15 +35,16 @@ public class CourseController_ResponseEntity {
 
     @GetMapping("{id}")
     public ResponseEntity<CourseDTO> getCourseById(@PathVariable("id") Long courseId){
+      //status code ok = 200, returning body of the id
         return ResponseEntity.ok(courseService.getCourseById(courseId));
     }
 
     @PostMapping
     public ResponseEntity<CourseDTO> createCourse(@RequestBody CourseDTO course){   //break till 8:30 pm
         return ResponseEntity
-                .status(HttpStatus.CREATED)
-                .header("Operation","Create")
-                .body(courseService.createCourse(course));
+                .status(HttpStatus.CREATED)//passing status code, created = 201
+                .header("Operation","Create")//passing head key & values
+                .body(courseService.createCourse(course));//passing a body
     }
 
 }

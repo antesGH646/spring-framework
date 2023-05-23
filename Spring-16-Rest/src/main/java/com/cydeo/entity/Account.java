@@ -10,12 +10,21 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
+/**
+ * the @JsonIgnoreProperties is used to exclude/prevent some fields
+ * from the response body. It can be placed on the class level or
+ * on the field level,
+ * the ignoreUnknown = true added for security reasons that is to block
+ * any coming external fields from displaying or merging or integrating
+ * the @JsonBackReference is used to omit the field from serialization
+ */
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @Table(name = "account_details")
-@JsonIgnoreProperties(value = {"hibernateLazyInitializer"},ignoreUnknown = true)
+//@JsonIgnoreProperties(value = {"hibernateLazyInitializer"},ignoreUnknown = true)
+@JsonIgnoreProperties(value = {"state", "postalCode"},ignoreUnknown = true)
 public class Account extends BaseEntity {
 
     private String name;

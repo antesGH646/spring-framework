@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController //combines or includes both the @Controller and @ResponseBody internally
-@RequestMapping("/courses") //specifying the endpoint
+@RequestMapping("/courses/api/v1") //specifying the endpoint
 public class CourseController {
 
     //defining CourseService to call the implementing methods
