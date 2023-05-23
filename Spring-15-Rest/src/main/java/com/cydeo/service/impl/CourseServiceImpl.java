@@ -21,25 +21,25 @@ public class CourseServiceImpl implements CourseService {
         this.mapperUtil = mapperUtil;
     }
 
+    /**
+     * Converts/maps the CourseDTO object then save it into the database
+     * @param course CourseDTO
+     * @return converted/mapped CourseDTO objects
+     */
     @Override
     public CourseDTO createCourse(CourseDTO course) {
-
         courseRepository.save(mapperUtil.convert(course, new Course()));
-
         return course;
     }
 
     @Override
     public CourseDTO getCourseById(long courseId) {
-
         Course course = courseRepository.findById(courseId).get();
-
         return mapperUtil.convert(course, new CourseDTO());
     }
 
     @Override
     public List<CourseDTO> getCoursesByCategory(String category) {
-
         List<Course> list = courseRepository.findAllByCategory(category);
         return list.stream().map(obj -> mapperUtil.convert(obj, new CourseDTO())).collect(Collectors.toList());
     }
@@ -47,15 +47,12 @@ public class CourseServiceImpl implements CourseService {
     @Override
     public List<CourseDTO> getCourses() {
         List<Course> list = courseRepository.findAll();
-
         return list.stream().map(obj -> mapperUtil.convert(obj, new CourseDTO())).collect(Collectors.toList());
     }
 
     @Override
     public void updateCourse(Long courseId, CourseDTO courseDTO) {
-
         Course course = mapperUtil.convert(courseDTO, new Course());
-
         courseRepository.findById(courseId).ifPresent(dbCourse -> {
             dbCourse.setName(course.getName());
             dbCourse.setCategory(course.getCategory());
@@ -75,5 +72,4 @@ public class CourseServiceImpl implements CourseService {
     public void deleteCourseById(long courseId) {
         courseRepository.deleteById(courseId);
     }
-
 }
