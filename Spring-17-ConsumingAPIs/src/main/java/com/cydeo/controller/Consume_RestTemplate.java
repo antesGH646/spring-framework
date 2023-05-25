@@ -1,0 +1,34 @@
+package com.cydeo.controller;
+
+import com.cydeo.dto.User;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+
+@RestController
+@RequestMapping("/users")
+public class Consume_RestTemplate {
+
+    //stores the API that needs to be consumed in this API
+    private final String uri = "https://jsonplaceholder.typicode.com/users";
+    private final RestTemplate restTemplate;
+
+    //inject RestTemplate
+    public Consume_RestTemplate(RestTemplate restTemplate) {
+        this.restTemplate = restTemplate;
+    }
+
+    /**
+     * use RestTemplate, but 1st create the bean in the runner class
+     * Cannot post into a third party API, so you always use the GetMapping
+     * getForEntity() gets the Json body and maps it to this dto
+     * and accepts the URI and the Array class that you want to map into.
+     */
+    @GetMapping
+    public User[] readAllUsers() {
+        ResponseEntity<User[]> responseEntity = restTemplate.getForEntity(uri, User[].class);
+        return responseEntity.getBody();
+    }
+}
