@@ -22,10 +22,12 @@ public class Consume_RestTemplate {
     }
 
     /**
-     * use RestTemplate, but 1st create the bean in the runner class
-     * Cannot post into a third party API, so you always use the GetMapping
-     * getForEntity() gets the Json body and maps it to this dto
-     * and accepts the URI and the Array class that you want to map into.
+     * This method return a list of Users consuming from a third party URL
+     * Uses RestTemplate class, but 1st create the bean in the runner class
+     * Cannot post into a third party API, therefore, you have to use
+     * the @GetMapping annotation and the getForEntity() method which gets
+     * the Json body and maps it to this dto and accepts the URI and
+     * the Array class that you want to map into.
      */
     @GetMapping
     public User[] readAllUsers() {
@@ -34,6 +36,8 @@ public class Consume_RestTemplate {
     }
 
     /**
+     * This method returns a user by id endpoint path
+     * consuming it from a third party URL
      * Want retrieve certain user using ID path
      * getForObject() does not need to map, it just
      * returns an object
