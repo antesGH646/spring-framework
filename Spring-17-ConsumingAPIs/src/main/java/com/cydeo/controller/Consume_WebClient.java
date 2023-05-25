@@ -1,8 +1,11 @@
 package com.cydeo.controller;
 
+import com.cydeo.entity.MovieCinema;
 import com.cydeo.repository.GenreRepository;
 import com.cydeo.repository.MovieCinemaRepository;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Flux;
 
 @RestController
 public class Consume_WebClient {
@@ -16,5 +19,8 @@ public class Consume_WebClient {
         this.genreRepository = genreRepository;
     }
 
-
+    @GetMapping("/flux-movie-cinema")
+    public Flux<MovieCinema> readAllMovieCinemaFlux() {
+        return Flux.fromIterable(movieCinemaRepository.findAll());
+    }
 }
