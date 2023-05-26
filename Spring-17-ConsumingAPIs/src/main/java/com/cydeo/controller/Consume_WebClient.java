@@ -53,16 +53,25 @@ public class Consume_WebClient {
         return Mono.empty();
     }
 
+    /**
+     * Consuming a URL using Webclient
+     * @return fluxes of MovieCinema
+     */
     @GetMapping("/flux")
     public Flux<MovieCinema> readWithWebClient(){
         return webClient
                 .get()
-                .uri("/flux-movie-cinemas")
+                .uri("/flux-movie-cinema")
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .retrieve()
                 .bodyToFlux(MovieCinema.class);
     }
 
+    /**
+     * Consumes a URL to retrieve Mono result
+     * @param id Long
+     * @return MovieCinema
+     */
     @GetMapping("/mono/{id}")
     public Mono<MovieCinema> readMonoWithWebClient(@PathVariable("id") Long id){
         return webClient
