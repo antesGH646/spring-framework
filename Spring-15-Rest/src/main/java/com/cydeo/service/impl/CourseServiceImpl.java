@@ -22,7 +22,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * Converts/maps the CourseDTO object then save it into the database
+     * Converts/maps the CourseDTO object into entity, then saves it into the database
      * @param course CourseDTO
      * @return converted/mapped CourseDTO objects
      */
@@ -32,24 +32,51 @@ public class CourseServiceImpl implements CourseService {
         return course;
     }
 
+    /**
+     * The Entity Or Course is fetched by its id, then it is mapped to DTO,
+     * lastly returned as DTO
+     * @param courseId Long
+     * @return CourseDTO (fetched then mapped Course to CourseDTO)
+     */
     @Override
     public CourseDTO getCourseById(long courseId) {
         Course course = courseRepository.findById(courseId).get();
         return mapperUtil.convert(course, new CourseDTO());
     }
 
+    /**
+     * The Course is fetched by its Category, mapped to DTO, collected as a list,
+     * finally returned.
+     * @param category String
+     * @return a list of fetched Courses by category
+     */
     @Override
     public List<CourseDTO> getCoursesByCategory(String category) {
         List<Course> list = courseRepository.findAllByCategory(category);
         return list.stream().map(obj -> mapperUtil.convert(obj, new CourseDTO())).collect(Collectors.toList());
     }
 
+    /**
+     * All the Courses (entities from db) are fetched, mapped to DTO,
+     * finally returned
+     * @return a list of fetched Courses
+     */
     @Override
     public List<CourseDTO> getCourses() {
         List<Course> list = courseRepository.findAll();
         return list.stream().map(obj -> mapperUtil.convert(obj, new CourseDTO())).collect(Collectors.toList());
     }
 
+    /**
+     * A course is updated in the UI meaning DTO object
+     * Therefore it should be converted to Entity to save the changes in the db.
+     *  1) The Course or DTO is converted/mapped to entity
+     *  2) The mapped object is first checked it exists in the database
+     *  3) If it exists, it should be set to its category, name, etc
+     *  4) it should be saved
+     * @param courseId Long
+     * @param courseDTO CourseDTO
+     */
     @Override
     public void updateCourse(Long courseId, CourseDTO courseDTO) {
         Course course = mapperUtil.convert(courseDTO, new Course());
@@ -63,11 +90,19 @@ public class CourseServiceImpl implements CourseService {
         });
     }
 
+    /**
+     * A Course is deleted from the db
+     * No parameter and return type is needed
+     */
     @Override
     public void deleteCourses() {
         courseRepository.deleteAll();
     }
 
+    /**
+     * A Course is deleted by its id from the db
+     * No parameter and return type is needed
+     */
     @Override
     public void deleteCourseById(long courseId) {
         courseRepository.deleteById(courseId);

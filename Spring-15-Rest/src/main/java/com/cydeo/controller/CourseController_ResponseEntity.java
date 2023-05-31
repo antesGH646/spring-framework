@@ -32,7 +32,6 @@ public class CourseController_ResponseEntity {
                 .body(courseService.getCourses());
     }
 
-
     @GetMapping("{id}")
     public ResponseEntity<CourseDTO> getCourseById(@PathVariable("id") Long courseId){
       //status code ok = 200, returning body of the id
@@ -46,5 +45,4 @@ public class CourseController_ResponseEntity {
                 .header("Operation","Create")//passing head key & values
                 .body(courseService.createCourse(course));//passing a body
     }
-
 }

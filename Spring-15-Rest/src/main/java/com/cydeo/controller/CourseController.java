@@ -28,18 +28,16 @@ public class CourseController {
     public List<CourseDTO> getAllCourses(){
         List<CourseDTO> list = courseService.getCourses();
         return list;
-
     }
 
     /**
      * Fetches a specific Course name by its id
      * when hit the url with the path
-     * e.g ...course/3
+     * e.g /courses/api/v1/3
      * @param courseId Long
      * @return CourseDTO a course by its id path
      */
-
-    @GetMapping("{id}")
+    @GetMapping("{id}") // e.g. /courses/api/v1/3
     public CourseDTO getCourseById(@PathVariable("id") Long courseId){
         return courseService.getCourseById(courseId);
     }
@@ -47,7 +45,7 @@ public class CourseController {
     /**
      * Fetches a list of specific category from the database
      * when you hit the url with the category name
-     * e.g ...course/Spring
+     * e.g /courses/api/v1/category/Spring
      * @param category String
      * @return List of specific categories as passed in the url path
      */
@@ -70,22 +68,21 @@ public class CourseController {
     /**
      * Updates a specific data in the database
      * when you hit the url with the path or id
-     * e.g ...course/3
+     * e.g /courses/api/v1/3
      * @param courseId Long
      * @param course CourseDTO
      */
-
-    @PutMapping("{id}")
+    @PutMapping("{id}") //e.g /courses/api/v1/3
     public void updateCourse(@PathVariable("id") Long courseId,@RequestBody CourseDTO course){
         courseService.updateCourse(courseId,course);
     }
 
     /**
-     * Deletes a data id when you pass the path of the id
-     * in the url e.g ...course/3
+     * Deletes a data by the id, when you pass the id
+     * in the url e.g /courses/api/v1/3
      * @param courseId Long
      */
-    @DeleteMapping("{id}")
+    @DeleteMapping("{id}") //e.g /courses/api/v1/3
     public void deleteCourseById(@PathVariable("id") Long courseId){
         courseService.deleteCourseById(courseId);
     }
@@ -93,8 +90,9 @@ public class CourseController {
     /**
      * Deletes all the data from the database
      * no need to pass the path in the url
+     * e.g /courses/api/v1/3
      */
-    @DeleteMapping
+    @DeleteMapping //e.g /courses/api/v1
     public void deleteCourses(){
         courseService.deleteCourses();
     }
