@@ -18,19 +18,19 @@ public class OrganizationController {
         this.organizationService = organizationService;
     }
 
-    @RolesAllowed({"ADMIN","USER"})
+    @RolesAllowed({"ADMIN","USER"}) //adding method level restriction: only admin and user roles can access this endpoint
     @GetMapping("/{organizationId}")
     public ResponseEntity<Organization> getOrganization(@PathVariable("organizationId") Long organizationId) throws Exception {
         return ResponseEntity.ok(organizationService.findById(organizationId));
     }
 
-    @RolesAllowed({"ADMIN","USER"})
+    @RolesAllowed({"ADMIN","USER"})//adding method level restriction:only admin and user roles can create organization
     @PostMapping
     public ResponseEntity<Organization> createOrganization(@RequestBody Organization organization) {
         return ResponseEntity.status(HttpStatus.CREATED).body(organizationService.create(organization));
     }
 
-    @RolesAllowed({"ADMIN"})
+    @RolesAllowed({"ADMIN"})//dding method level restriction: only admin can delete an organization
     @DeleteMapping("/{organizationId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteLicense(@PathVariable("organizationId") Long organizationId) {

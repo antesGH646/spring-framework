@@ -14,5 +14,4 @@ public class Organization {
     public String contactName;
     public String contactEmail;
     public String contactPhone;
-
 }

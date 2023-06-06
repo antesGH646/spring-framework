@@ -20,7 +20,8 @@ public class LicenseController {
     }
 
     @GetMapping("/{licenseId}")
-    public ResponseEntity<License> getLicense(@PathVariable("organizationId") Long organizationId, @PathVariable("licenseId") Long licenseId) throws Exception {
+    public ResponseEntity<License> getLicense(@PathVariable("organizationId") Long organizationId,
+                                              @PathVariable("licenseId") Long licenseId) throws Exception {
         License license = licenseService.getLicense(licenseId, organizationId);
         return ResponseEntity.ok(license);
     }

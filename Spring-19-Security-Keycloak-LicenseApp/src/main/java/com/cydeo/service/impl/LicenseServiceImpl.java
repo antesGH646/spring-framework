@@ -27,16 +27,13 @@ public class LicenseServiceImpl implements LicenseService {
         Organization organization = retrieveOrganizationInfo(organizationId);
 
         if (organization != null) {
-
             license.setOrganizationName(organization.getName());
             license.setContactName(organization.getContactName());
             license.setContactEmail(organization.getContactEmail());
             license.setContactPhone(organization.getContactPhone());
-
         }
 
         return license;
-
     }
 
     private Organization retrieveOrganizationInfo(Long organizationId) {

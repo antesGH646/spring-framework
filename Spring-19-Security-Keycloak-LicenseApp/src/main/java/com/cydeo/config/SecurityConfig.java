@@ -18,7 +18,7 @@ import org.springframework.security.web.authentication.session.SessionAuthentica
 
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(jsr250Enabled = true)
+@EnableGlobalMethodSecurity(jsr250Enabled = true)//similar to antMatchers() adds method level security
 public class SecurityConfig extends KeycloakWebSecurityConfigurerAdapter {
 @Override
     protected void configure(HttpSecurity http) throws Exception {
