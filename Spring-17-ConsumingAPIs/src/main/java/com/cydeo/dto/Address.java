@@ -11,7 +11,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
+//unknown fields will not be serialized meaning won't show up in the json respone
 @JsonInclude(JsonInclude.Include.NON_NULL)
+//in the json output the response will show up in this defined order
 @JsonPropertyOrder({
     "street",
     "suite",
