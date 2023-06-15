@@ -33,14 +33,14 @@ public class LoggingAspect {
         logger.info("Logger info ------");
     }
 
-//    @Pointcut("execution(* com.cydeo.repository.CourseRepository.findById(*))")
-//    private void anyProductRepositoryFindById(){}
-//
-//    @Before("anyProductRepositoryFindById()")
-//    public void beforeCourseRepoOperation(JoinPoint joinPoint){
-//        logger.info("Before (findById) : -> Method: {} - Arguments: {} - Target: {}", joinPoint, joinPoint.getArgs(), joinPoint.getTarget());
-//    }
-//
+    @Pointcut("execution(* com.cydeo.repository.CourseRepository.findById(*))")
+    private void anyProductRepositoryFindById(){}
+
+    @Before("anyProductRepositoryFindById()")
+    public void beforeCourseRepoOperation(JoinPoint joinPoint){
+        logger.info("Before (findById) : -> Method: {} - Arguments: {} - Target: {}", joinPoint, joinPoint.getArgs(), joinPoint.getTarget());
+    }
+
 //    //within
 //    @Pointcut("within(com.cydeo.controller..*)")
 //    private void anyControllerOperation(){}
