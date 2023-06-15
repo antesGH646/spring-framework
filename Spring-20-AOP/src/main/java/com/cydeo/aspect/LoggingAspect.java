@@ -92,27 +92,27 @@ public class LoggingAspect {
         logger.info("After Throwing -> Method: {} - Exception: {}", joinPoint.getSignature().toShortString(), exception.getMessage());
     }
 
-//    /**
-//     *
-//     */
-//    @After("anyGetCourseOperation()")
-//    public void afterControllerAdvice(JoinPoint joinPoint) {
-//        logger.info("After finally -> Method : {}", joinPoint.getSignature().toShortString());
-//    }
-//
-//    @Pointcut("@annotation(com.cydeo.annotation.Loggable)")
-//    private void anyLoggableMethodOperation(){}
-//
-//    @Around("anyLoggableMethodOperation()")
-//    public Object anyLoggableMethodOperationAdvice(ProceedingJoinPoint proceedingJoinPoint){
-//        logger.info("Before () -> Method : {} - Parameters: {}", proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getArgs());
-//        Object results = null;
-//        try {
-//            results =proceedingJoinPoint.proceed();
-//        } catch (Throwable e) {
-//            e.printStackTrace();
-//        }
-//        logger.info("After -> Method: {} - Results: {}", proceedingJoinPoint.getSignature().toShortString(),results.toString());
-//        return results;
-//    }
+    /**
+     *
+     */
+    @After("anyGetCourseOperation()")
+    public void afterControllerAdvice(JoinPoint joinPoint) {
+        logger.info("After finally -> Method : {}", joinPoint.getSignature().toShortString());
+    }
+
+    @Pointcut("@annotation(com.cydeo.annotation.Loggable)")
+    private void anyLoggableMethodOperation(){}
+
+    @Around("anyLoggableMethodOperation()")
+    public Object anyLoggableMethodOperationAdvice(ProceedingJoinPoint proceedingJoinPoint){
+        logger.info("Before () -> Method : {} - Parameters: {}", proceedingJoinPoint.getSignature().toShortString(), proceedingJoinPoint.getArgs());
+        Object results = null;
+        try {
+            results =proceedingJoinPoint.proceed();
+        } catch (Throwable e) {
+            e.printStackTrace();
+        }
+        logger.info("After -> Method: {} - Results: {}", proceedingJoinPoint.getSignature().toShortString(),results.toString());
+        return results;
+    }
 }
