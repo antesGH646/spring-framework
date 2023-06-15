@@ -36,55 +36,70 @@ public class LoggingAspect {
     @Pointcut("execution(* com.cydeo.repository.CourseRepository.findById(*))")
     private void anyProductRepositoryFindById(){}
 
+    //executing with @Before advice
     @Before("anyProductRepositoryFindById()")
     public void beforeCourseRepoOperation(JoinPoint joinPoint){
         logger.info("Before (findById) : -> Method: {} - Arguments: {} - Target: {}", joinPoint, joinPoint.getArgs(), joinPoint.getTarget());
     }
 
-//    //within
-//    @Pointcut("within(com.cydeo.controller..*)")
-//    private void anyControllerOperation(){}
-//
-//    @Pointcut("@within(org.springframework.stereotype.Service)")
-//    private void anyServiceOperation(){
-//    }
+    //@within is used to match classes with in certain types e.g. classes within a sub-package (.*)
+    @Pointcut("within(com.cydeo.controller..*)")
+    private void anyControllerOperation(){}
 
-//    @Before("anyControllerOperation() || anyServiceOperation()")
-//    public void beforeControllerAdvice(JoinPoint joinPoint){
-//        logger.info("Before () -> Method : {} - Arguments : {} - Target: {}", joinPoint, joinPoint.getArgs(), joinPoint.getTarget());
-//    }
-//
+    //monitoring any of the above imports e.g. the Service (org.springframework.stereotype.Service)
+    @Pointcut("@within(org.springframework.stereotype.Service)")
+    private void anyServiceOperation(){
+    }
 
-//    @Pointcut("@annotation(org.springframework.web.bind.annotation.DeleteMapping)")
-//    private void anyDeleteCourseOperation(){}
-//
-//    @Before("anyDeleteCourseOperation()")
-//    public void beforeControllerAdvice(JoinPoint joinPoint){
-//        logger.info("Before -> Method : {} - Arguments : {} - Target: {}", joinPoint, joinPoint.getArgs(), joinPoint.getTarget());
-//    }
-//    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
-//    private void anyGetCourseOperation(){}
+    //combining two pointcuts using logical operator
+    @Before("anyControllerOperation() || anyServiceOperation()")
+    public void beforeControllerAdvice(JoinPoint joinPoint){
+        logger.info("Before () -> Method : {} - Arguments : {} - Target: {}", joinPoint, joinPoint.getArgs(), joinPoint.getTarget());
+    }
 
-//    @AfterReturning(pointcut = "anyGetCourseOperation()", returning = "result")
-//    public void afterReturningControllerAdvice(JoinPoint joinPoint, Object result){
-//        logger.info("After returning -> Method: {} - result: {}", joinPoint.getSignature().toShortString(),result.toString());
-//    }
-//
-//    @AfterReturning(pointcut = "anyGetCourseOperation()", returning = "result")
-//    public void afterReturningControllerAdvice(JoinPoint joinPoint, List<Object> result){
-//        logger.info("After returning(List) -> Method: {} - result: {}", joinPoint.getSignature().toShortString(),result.toString());
-//    }
+    /**
+     * Both annotations are used to match Join Points
+     * The @annotation is used at method level, but @within is used on the class level.
+     */
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.DeleteMapping)")
+    private void anyDeleteCourseOperation(){}
 
-//    @AfterThrowing(pointcut = "anyGetCourseOperation()", throwing = "exception")
-//    public void afterThrowingControllerAdvice(JoinPoint joinPoint, RuntimeException exception){
-//        logger.info("After Throwing -> Method: {} - Exception: {}", joinPoint.getSignature().toShortString(), exception.getMessage());
-//    }
+    @Before("anyDeleteCourseOperation()")
+    public void beforeControllerAdvice2(JoinPoint joinPoint){
+        logger.info("Before -> Method : {} - Arguments : {} - Target: {}", joinPoint, joinPoint.getArgs(), joinPoint.getTarget());
+    }
 
+    /**
+     * Point cut with @annotation method associated with @AfterReturning advice
+     * AfterReturning accepts two params the target object and the returning object
+     * So define the parameters in the AfterReturning method
+     */
+    @Pointcut("@annotation(org.springframework.web.bind.annotation.GetMapping)")
+    private void anyGetCourseOperation(){}
+
+    @AfterReturning(pointcut = "anyGetCourseOperation()", returning = "result")
+    public void afterReturningControllerAdvice(JoinPoint joinPoint, Object result){
+        logger.info("After returning -> Method: {} - result: {}", joinPoint.getSignature().toShortString(),result.toString());
+    }
+
+    @AfterReturning(pointcut = "anyGetCourseOperation()", returning = "result")
+    public void afterReturningControllerAdvice(JoinPoint joinPoint, List<Object> result){
+        logger.info("After returning(List) -> Method: {} - result: {}", joinPoint.getSignature().toShortString(),result.toString());
+    }
+
+    @AfterThrowing(pointcut = "anyGetCourseOperation()", throwing = "exception")
+    public void afterThrowingControllerAdvice(JoinPoint joinPoint, RuntimeException exception){
+        logger.info("After Throwing -> Method: {} - Exception: {}", joinPoint.getSignature().toShortString(), exception.getMessage());
+    }
+
+//    /**
+//     *
+//     */
 //    @After("anyGetCourseOperation()")
 //    public void afterControllerAdvice(JoinPoint joinPoint) {
 //        logger.info("After finally -> Method : {}", joinPoint.getSignature().toShortString());
 //    }
-
+//
 //    @Pointcut("@annotation(com.cydeo.annotation.Loggable)")
 //    private void anyLoggableMethodOperation(){}
 //
@@ -100,5 +115,4 @@ public class LoggingAspect {
 //        logger.info("After -> Method: {} - Results: {}", proceedingJoinPoint.getSignature().toShortString(),results.toString());
 //        return results;
 //    }
-
 }
