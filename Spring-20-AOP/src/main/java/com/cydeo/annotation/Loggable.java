@@ -5,8 +5,6 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-@Target({ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
-public @interface Loggable {
-
-}
+@Target({ElementType.METHOD})//defining the target to be used on method level
+@Retention(RetentionPolicy.RUNTIME)//defining the retention to run at run time
+public @interface Loggable {} //name of the custom annotation -> annotations are marked with @interface
