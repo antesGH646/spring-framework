@@ -92,13 +92,19 @@ public class LoggingAspect {
         logger.info("After Throwing -> Method: {} - Exception: {}", joinPoint.getSignature().toShortString(), exception.getMessage());
     }
 
-    /**
-     *
-     */
     @After("anyGetCourseOperation()")
     public void afterControllerAdvice(JoinPoint joinPoint) {
         logger.info("After finally -> Method : {}", joinPoint.getSignature().toShortString());
     }
+
+    /**
+     * The Around contains executed Before or After methods.
+     * The Around method has the ProceedingJointPoint type to
+     * call the proceeding() method.
+     * The proceeding() method causes the underlying method to execute
+     * It is good the Around advice to return a value from the device method
+     * as the matched JoinPoint might have a return type
+     */
 
     @Pointcut("@annotation(com.cydeo.annotation.Loggable)")
     private void anyLoggableMethodOperation(){}
