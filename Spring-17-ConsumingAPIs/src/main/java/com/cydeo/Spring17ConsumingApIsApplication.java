@@ -14,7 +14,7 @@ public class Spring17ConsumingApIsApplication {
         SpringApplication.run(Spring17ConsumingApIsApplication.class, args);
     }
 
-    @Bean
+    @Bean//creating a bean, b/c it was created by somebody else (3rd party)
     public RestTemplate restTemplate() {
         return new RestTemplate();
     }
