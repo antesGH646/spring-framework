@@ -1,4 +1,4 @@
-package com.cydeo.clientproxy;
+package com.cydeo.client;
 
 import com.cydeo.dto.User;
 import org.springframework.cloud.openfeign.FeignClient;

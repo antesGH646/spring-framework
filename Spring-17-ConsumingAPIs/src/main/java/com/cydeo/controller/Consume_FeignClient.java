@@ -1,7 +1,7 @@
 package com.cydeo.controller;
 
-import com.cydeo.clientproxy.ConsumeSecureUrlClient;
-import com.cydeo.clientproxy.ConsumeUrlUsersClient;
+import com.cydeo.client.ConsumeSecureUrlClient;
+import com.cydeo.client.ConsumeUrlUsersClient;
 import com.cydeo.dto.ResponseWrapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
