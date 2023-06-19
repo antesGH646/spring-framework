@@ -6,8 +6,13 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
-//Jackson needs Getters and Setters to map
-@Getter
+/**
+ * This custom mapper is used to add custom messages into
+ * the Json response. Can pass these messages by calling the
+ * constructor under the body() method of the ResponseEntity class
+ * e.g. .body(new ResponseWrapper("message",courseService.getCourses()))
+ */
+@Getter//Jackson needs Getters and Setters to map
 @Setter
 @NoArgsConstructor
 public class ResponseWrapper {

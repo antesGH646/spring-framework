@@ -10,7 +10,7 @@ import javax.persistence.*;
 
 /**
  * the @JsonManagedReference is used when there is relationship
- * e.g the Account will show up in the User
+ * e.g. the Account will show up in the User
  * the @JsonManagedReference is the forward part of reference
  * – the one that gets serialized normally. @JsonBackReference is
  * the back part of reference – it will be omitted from serialization.
@@ -39,7 +39,7 @@ public class User extends BaseEntity {
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "account_details_id")
-    @JsonManagedReference //is the forward part of reference - the one that gets serialized normally
+    @JsonManagedReference //forward part of reference, it is serialized normally
     private Account account;
 
 }

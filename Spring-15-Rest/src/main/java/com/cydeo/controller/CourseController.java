@@ -19,10 +19,10 @@ public class CourseController {
     }
 
     /**
-     * In API, methods do not return HTML pages instead
-     * return objects or data, so others can use the data
+     * In API, http methods do not return HTML pages instead
+     * they return objects or data, so others can use the data
      * from the API
-     * @return lists of Course
+     * @return lists of Courses
      */
     @GetMapping
     public List<CourseDTO> getAllCourses(){
@@ -31,9 +31,8 @@ public class CourseController {
     }
 
     /**
-     * Fetches a specific Course name by its id
-     * when hit the url with the path
-     * e.g /courses/api/v1/3
+     * This method creates the /courses/api/v1/{id} endpoint.
+     * The url fetches and returns a specific Course name by its id
      * @param courseId Long
      * @return CourseDTO a course by its id path
      */
@@ -43,8 +42,8 @@ public class CourseController {
     }
 
     /**
-     * Fetches a list of specific category from the database
-     * when you hit the url with the category name
+     * This http method creates the /courses/api/v1/category/{name} endpoint
+     * The url fetches a list of specific category from the database
      * e.g /courses/api/v1/category/Spring
      * @param category String
      * @return List of specific categories as passed in the url path
@@ -55,8 +54,8 @@ public class CourseController {
     }
 
     /**
-     * The @RequestBody captures the CourseDTO object in Json format
-     * and passes it to createCourse
+     * The @RequestBody enables the user to enter and send a request body
+     * of CourseDTO object in a Json format to create a Course in the db
      * @param course CourseDTO
      * @return mapped CourseDTO
      */
