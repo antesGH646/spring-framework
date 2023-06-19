@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@RestController
+@RestController//marks that this class is Rest API Controller
 public class HomeController {
 
     private final UserRepository userRepository;

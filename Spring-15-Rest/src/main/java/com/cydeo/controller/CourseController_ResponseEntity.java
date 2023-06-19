@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@RestController//marks that this class is Rest API Controller
 @RequestMapping("/courses/api/v2")
 public class CourseController_ResponseEntity {
 
