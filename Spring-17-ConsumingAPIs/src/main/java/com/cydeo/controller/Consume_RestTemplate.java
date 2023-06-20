@@ -30,11 +30,12 @@ public class Consume_RestTemplate {
      *  the @GetMapping annotation and the getForEntity() method which
      *  accepts the URI and the Array class that you want to map into; it gets
      *  the Json body from the URI and maps the data into the given dto.
+     *  Finally, returns the json body.
      */
     @GetMapping//http://localhost:8080/users
     public User[] readAllUsers() {
         ResponseEntity<User[]> responseEntity = restTemplate.getForEntity(URI, User[].class);
-        return responseEntity.getBody();
+        return responseEntity.getBody();//return the json body
     }
 
     /**
