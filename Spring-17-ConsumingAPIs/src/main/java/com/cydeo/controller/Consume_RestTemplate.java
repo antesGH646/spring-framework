@@ -10,6 +10,17 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
 
+/**
+ * When consuming URI using RestTemplate there are three
+ * mostly used methods to consider.
+ *    1) getForEntity(URI, DTO[].class), need to pass DTOs as arrays
+ *    2) getForObject(URI, Object.class), do not need to pass/have DTOs
+ *    3) exchange(URI, any headers, or objects) sometimes you may need to pass
+ *          headers to consume APIs
+ *          To pass header you may use the HttpHeaders, HttpEntity classes
+ *          HttpHeaders has the set() method to pass/set the key and values
+ *          of the header, and the HttpEntity accepts header objects to work with.
+ */
 @RestController
 @RequestMapping("/users")
 public class Consume_RestTemplate {
@@ -28,22 +39,22 @@ public class Consume_RestTemplate {
      * -Uses RestTemplate class, but 1st create the bean in the runner class
      * -Cannot post into a third party API, therefore, you have to use
      *  the @GetMapping annotation and the getForEntity() method which
-     *  accepts the URI and the Array class that you want to map into; it gets
-     *  the Json body from the URI and maps the data into the given dto.
-     *  Finally, returns the json body.
+     *  accepts the URI and the Array class of the DTO that you want to map into;
+     *  it gets the Json body from the URI and maps the data into the given dto.
+     *  Finally, returns the json body from a serialized DTO.
      */
     @GetMapping//http://localhost:8080/users
     public User[] readAllUsers() {
         ResponseEntity<User[]> responseEntity = restTemplate.getForEntity(URI, User[].class);
-        return responseEntity.getBody();//return the json body
+        return responseEntity.getBody();//return the json body serialized from the URI objects
     }
 
     /**
      * This method returns a user by id endpoint path
      * consuming it from a third party URL
      * Want retrieve certain user using ID path
-     * getForObject() does not need to map, it just
-     * returns an object
+     * getForObject() does not care about DTOs or
+     * need to map, it just returns an object
      *  @param id Integer, pass integer endpoint
      *  @return Object
      */
