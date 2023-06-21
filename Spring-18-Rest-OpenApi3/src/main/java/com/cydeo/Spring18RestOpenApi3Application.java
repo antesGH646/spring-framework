@@ -26,6 +26,9 @@ public class Spring18RestOpenApi3Application {
 //                .servers()
 //                .path(new Paths().addPathItem("", new PathItem().get())
 //                .components(new Components())
-                .info(new Info().title("Cinema Application OpenAPI").version("v1").description("Cinema Application API Documentation"));
+                .info(new Info()
+                        .title("Cinema Application OpenAPI")
+                        .version("v1")
+                        .description("Cinema Application API Documentation"));
     }
 }
