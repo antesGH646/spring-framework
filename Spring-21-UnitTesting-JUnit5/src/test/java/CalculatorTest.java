@@ -17,6 +17,7 @@ class CalculatorTest {
     @Test
     void testCase3() {
         fail("Not implemented yet");
+
     }
 
     @Test
@@ -33,6 +34,7 @@ class CalculatorTest {
     void add() {
         System.out.println("add");
         int actual = Calculator.add(2, 3);
+        //compares expected vs actual otherwise throws the message
         assertEquals(5, actual, "It is not matching with expected value.");
     }
 }
