@@ -6,17 +6,17 @@ class CalculatorTest {
 
     @Test
     void testCase1() {
-
+        fail("Not implemented yet");
     }
 
     @Test
     void testCase2() {
-
+        fail("Not implemented yet");
     }
 
     @Test
     void testCase3() {
-
+        fail("Not implemented yet");
     }
 
     @Test
