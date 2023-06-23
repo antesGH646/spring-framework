@@ -5,4 +5,16 @@ public class Calculator {
     public static int add(int num1, int num2) {
         return num1 + num2;
     }
+
+    /**
+     * assume that this method is throws an exception
+     */
+    public static int add2(int num1, int num2) {
+        if(num1 > num2) {
+            throw new IllegalArgumentException();
+        }
+        else {
+            return num1 + num2;
+        }
+    }
 }
