@@ -1,7 +1,6 @@
-package com.cydeo.service;
+package com.cydeo.service.impl;
 
 import com.cydeo.repository.UserRepository;
-import com.cydeo.service.impl.UserServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
@@ -14,7 +13,7 @@ import static org.mockito.Mockito.*;
 
 //allows to use Mockito methods and classes on the top of the JUnit and TestNG
 @ExtendWith(MockitoExtension.class)
-class UserServiceTest {
+class UserServiceImplTest {
 
     @Mock//telling mockito to mock from this repository
     UserRepository userRepository;
