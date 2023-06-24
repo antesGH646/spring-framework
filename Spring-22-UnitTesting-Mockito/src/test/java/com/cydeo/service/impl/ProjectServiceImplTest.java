@@ -45,4 +45,12 @@ class ProjectServiceImplTest {
         //asserting from junit5 jupiter
         assertNotNull(projectServiceImpl.getByProjectCode(anyString()));
     }
+
+    @Test
+    void getByProjectCodeExceptionTest() {
+        //define the mocks
+        when(projectRepository.findByProjectCode("")).thenThrow(new RuntimeException("Project Not Found"));
+        //assertThrows() accepts the type of exception class and the method that is throwing the exception
+        assertThrows(RuntimeException.class, () -> projectServiceImpl.getByProjectCode(""));
+    }
 }
