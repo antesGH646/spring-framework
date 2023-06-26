@@ -46,11 +46,33 @@ class ProjectServiceImplTest {
         assertNotNull(projectServiceImpl.getByProjectCode(anyString()));
     }
 
+    /**
+     * Instead of testing the real thrown exception
+     * In this method, it mocks to test
+     * if the findByProjectCode() method throws an exception
+     * NB. In JUnit expected comes first
+     */
     @Test
     void getByProjectCodeExceptionTest() {
-        //define the mocks
+        //define the mocks, assumes that findByProjectCode() is throwing an exception
         when(projectRepository.findByProjectCode("")).thenThrow(new RuntimeException("Project Not Found"));
         //assertThrows() accepts the type of exception class and the method that is throwing the exception
-        assertThrows(RuntimeException.class, () -> projectServiceImpl.getByProjectCode(""));
+        Throwable throwable = assertThrows(RuntimeException.class, () -> projectServiceImpl.getByProjectCode(""));
+        verify(projectRepository).findByProjectCode(anyString());
+        //capturing the actual exception and comparing it with expected
+        assertEquals("Project Not Found",throwable.getMessage());
+    }
+
+    @Test
+    void saveTest() {
+        ProjectDTO projectDTO = new ProjectDTO();
+        Project project = new Project();
+        //how the save method acts when mocked, objects are saved as entity in db
+        when(projectMapper.convertToEntity(projectDTO)).thenReturn(project);//mocks converted dto to entity and returns
+        when(projectRepository.save(project)).thenReturn(project);//mocks as saved to db and returns what is saved
+       //calling the save method to execute the mocking line below
+        projectServiceImpl.save(projectDTO);
+
+        verify(projectRepository).save(project);//verifies if is saving a project
     }
 }
