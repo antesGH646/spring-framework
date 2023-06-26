@@ -29,7 +29,7 @@ class TaskServiceImplTest {
     TaskServiceImpl taskService;
 
     @ParameterizedTest
-    @ValueSource(longs = {1L,2L,3L,-5L})
+    @ValueSource(longs = {1L, 2L, 3L, -5L})
     void findById(long id) {//the actual method accepts parameter
         //Given:
         Task task = new Task();//the actual method uses entity
@@ -52,10 +52,10 @@ class TaskServiceImplTest {
      * Mockito developers added the BDDMockito class
      * for those who want to perform unit tests with
      * BDD style.
-    */
+     */
     @Test
     void findByIdWithBDDStyle() {
-       // Given:
+        // Given:
         Task task = new Task();
         given(taskRepository.findById(anyLong())).willReturn(Optional.of(task));
         given(taskMapper.convertToDTO(task)).willReturn(new TaskDTO());
@@ -64,9 +64,5 @@ class TaskServiceImplTest {
         //Then:
         then(taskRepository).should().findById(anyLong());
         then(taskRepository).should(never()).findById(-5L);
-    }
-
-    @Test
-    void update() {
     }
 }
