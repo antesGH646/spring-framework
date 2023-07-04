@@ -30,7 +30,7 @@ public class User extends BaseEntity {
 //    @JsonIgnore
     private String email;
 
-    //to see it when you Post but ignored when you Get
+    //enables to include it in the response body, but ignored or not be serialized in the response body
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
