@@ -6,22 +6,22 @@ class CalculatorTest {
 
     @BeforeEach
     void runningBefore() {
-        System.out.println("Lines of code defined in @BeforeEach will run before this test");
+        System.out.println("Lines of code defined in @BeforeEach will run before each such as this test");
     }
 
     @AfterEach
     void runningAfter() {
-        System.out.println("Lines of code defined in @AfterEach will run after this test\n");
+        System.out.println("Lines of code defined in @AfterEach will run after each such as this test\n");
     }
 
     @BeforeAll
     static void runFirstSetUp() {
-        System.out.println("Lines of code defined in @BeforeAll will run before all tests\n");
+        System.out.println("Lines of code defined in @BeforeAll will run before all the tests\n");
     }
 
     @AfterAll
     static void runLastTearDown() {
-        System.out.println("Lines of code defined in @AfterAll will run after all tests");
+        System.out.println("Lines of code defined in @AfterAll will run after all the tests");
     }
     @Test
     void testCase1() {

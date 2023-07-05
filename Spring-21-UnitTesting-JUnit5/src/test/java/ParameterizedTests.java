@@ -55,7 +55,7 @@ public class ParameterizedTests {
     }
 
     @ParameterizedTest
-    //if you have big test data, use a file source, skip the 1st line
+    //if you have big test data, use a file source, numLinesToSkip = 1 skips the 1st line,
     @CsvFileSource(resources = "/sample-data.csv", numLinesToSkip = 1)
     void testCase8(int num1, int num2, int result) {
         Assertions.assertEquals(result, Calculator.add(num1, num2));
