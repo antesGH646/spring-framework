@@ -4,11 +4,12 @@ called loosely coupled. If the business logic is adding extra criteria or
 if the PO adds additional User Stories you could add more implementing classes
 without affecting the other ones. If you make a change in one place, you do
 not need to make changes everywhere. Each implementing class should stand individually.
-Loose coupling uses a concept of behavioral parameterization. In behavioral parameterization,
-the manager class is accepting a reference variable of the interface as its parameter. When
-you pass the reference variable as a parameter, you can call the implementing methods
-by passing an implementing class name as an argument. This will pass the behaviors of the
-class (the class name that you are  passing as an argument) giving you the desired output.
+Loose coupling uses a concept of behavioral parameterization. In behavioral
+parameterization, the manager class is accepting a reference variable of the
+interface as its parameter.  When you pass the reference variable as a parameter,
+you can call the implementing  methods by passing an implementing class name
+as an argument. This will pass the  behaviors of the class (the class name
+that you are  passing as an argument)  giving you the desired output.
 In this case, you are using objects, but the objects are indirectly coupled.
 The approach or the flow:
 1) Create an interface with an abstract methods
