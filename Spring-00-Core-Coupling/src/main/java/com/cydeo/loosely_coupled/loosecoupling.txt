@@ -1,10 +1,10 @@
 What is loose coupling?
 When an object is indirectly using another object to complete its task it is
-called loosely coupled. If the business logic is adding extra criteria or if the PO is adding additional USs
-you could add more implementing classes without affecting the other ones. If you
-make a change in one place, you do not need to make changes everywhere. Each implementing
-class should stand individually.
-Loose coupling use concept of behavioral parameterization. In behavioral parameterization,
+called loosely coupled. If the business logic is adding extra criteria or
+if the PO adds additional User Stories you could add more implementing classes
+without affecting the other ones. If you make a change in one place, you do
+not need to make changes everywhere. Each implementing class should stand individually.
+Loose coupling usea a concept of behavioral parameterization. In behavioral parameterization,
 the manager class is accepting a reference variable of the interface as its parameter. When
 you pass the reference variable as a parameter, you can call the implementing methods
 by passing an implementing class name as an argument. This will pass the behaviors of the
