@@ -8,10 +8,10 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @SpringBootApplication
-public class Spring24DockerApplication {
+public class Spring24DevOpsDockerApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(Spring24DockerApplication.class, args);
+        SpringApplication.run(Spring24DevOpsDockerApplication.class, args);
     }
 
     @Bean
