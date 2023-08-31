@@ -1,4 +1,4 @@
-package stereotype_annotations.config;
+package com.mycy.stereotype_annotations.config;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

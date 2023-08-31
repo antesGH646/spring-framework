@@ -1,4 +1,4 @@
-package bean_annotation;
+package com.mycy.bean_annotation;
 
 public class FullTimeEmployee {
 

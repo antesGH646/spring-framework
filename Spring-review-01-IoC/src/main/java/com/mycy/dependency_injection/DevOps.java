@@ -1,5 +1,8 @@
-package stereotype_annotations.model;
+package com.mycy.dependency_injection;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class DevOps {
 
     //suppose that method is performing a certain task

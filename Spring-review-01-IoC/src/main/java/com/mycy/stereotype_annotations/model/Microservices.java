@@ -1,4 +1,4 @@
-package stereotype_annotations.model;
+package com.mycy.stereotype_annotations.model;
 
 import org.springframework.stereotype.Component;
 
@@ -6,12 +6,12 @@ import org.springframework.stereotype.Component;
  * With stereotype annotation, no need to create methods/objects
  *  limitation with stereotype annotation:
  *      - we cannot use multiple object as we use with bean annotations.
- *      - we cannot use it if the class does not belong to you
+ *      - we cannot use it if we do not create or own the class
  */
-@Component //labeling to tell spring creat a bean from it
-public class ExtraHours {
+@Component
+public class Microservices {
 
-    public Integer getHours() {
-        return 45;
+    public void getTotalHours() {
+        System.out.println("Total Hours: " + 200);
     }
 }

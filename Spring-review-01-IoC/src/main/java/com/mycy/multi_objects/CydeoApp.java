@@ -1,4 +1,4 @@
-package multi_objects;
+package com.mycy.multi_objects;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;

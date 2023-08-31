@@ -1,7 +1,6 @@
-package stereotype_annotations.model;
+package com.mycy.stereotype_annotations.model;
 
 import lombok.*;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -26,11 +25,6 @@ public class DataStructure {
 
     @NonNull //indicates that this is a required field, it cannot be null
     ExtraHours extraHours;
-
-//    @Autowired
-//    public DataStructure(ExtraHours extraHours) {
-//        this.extraHours = extraHours;
-//    }
 
     public void getTotalHours(){
         System.out.println("Total hours: "+(35 + extraHours.getHours()));

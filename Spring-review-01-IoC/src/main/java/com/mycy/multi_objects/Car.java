@@ -1,4 +1,4 @@
-package multi_objects;
+package com.mycy.multi_objects;
 
 public class Car {
     private String make;

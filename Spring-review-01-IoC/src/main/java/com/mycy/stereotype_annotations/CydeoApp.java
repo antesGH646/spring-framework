@@ -1,9 +1,9 @@
-package stereotype_annotations;
+package com.mycy.stereotype_annotations;
 
-import stereotype_annotations.config.AppConfig;
-import stereotype_annotations.model.DataStructure;
-import stereotype_annotations.model.ExtraHours;
-import stereotype_annotations.model.Microservices;
+import com.mycy.stereotype_annotations.config.AppConfig;
+import com.mycy.stereotype_annotations.model.DataStructure;
+import com.mycy.stereotype_annotations.model.ExtraHours;
+import com.mycy.stereotype_annotations.model.Microservices;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
