@@ -11,6 +11,7 @@ public class SalaryService {
     HoursRepository hoursRepository2;
     EmployeeRepository employeeRepository;
 
+    //injecting through constructor & @Qualifier annotation to select implementing objects
     public SalaryService(@Qualifier("RH") HoursRepository hoursRepository,
                          @Qualifier("OTH") HoursRepository hoursRepository2,
                          EmployeeRepository employeeRepository) {
