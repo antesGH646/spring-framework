@@ -19,7 +19,7 @@ public class SalaryService {
         this.employeeRepository = employeeRepository;
     }
 
-    public void calculateRegularSalary() {
+    public void calculateSalary() {
         //HourlyRate * (RegularHours + OvertimeHours)  => (15 + 40) * 65
         System.out.println(employeeRepository.getHourlyRate() * (hoursRepository.getHours() + hoursRepository2.getHours()));
     }

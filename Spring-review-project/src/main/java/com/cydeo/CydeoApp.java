@@ -9,6 +9,6 @@ public class CydeoApp {
     public static void main(String[] args) {
         ApplicationContext container = new AnnotationConfigApplicationContext(EmployeeConfig.class);
         SalaryService salaryService = container.getBean(SalaryService.class);
-        salaryService.calculateRegularSalary();
+        salaryService.calculateSalary();
     }
 }
