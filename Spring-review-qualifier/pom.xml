@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.cydeo</groupId>
-    <artifactId>Spring-review-project</artifactId>
+    <artifactId>Spring-review-qualifier</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
