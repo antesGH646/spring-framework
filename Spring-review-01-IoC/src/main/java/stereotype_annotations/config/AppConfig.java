@@ -7,4 +7,7 @@ import org.springframework.context.annotation.Configuration;
 //tells the Spring Container to look for classes inside stereotype_annotations package
 @ComponentScan(basePackages = "stereotype_annotations")
 public class AppConfig {
+    /*
+    Inside the stereotype annotation config file no need to add the object
+     */
 }
