@@ -15,7 +15,7 @@ Spring is singleton by default, multiple references will point to the same objec
 there are rare cases, you may need different bean, the solution is to use prototype scope
  */
 @Scope("prototype")//tells spring to create another object whenever requested
-//@Lazy //will not let execution unless a class is called
+//@Lazy //will not create beans automatically by default unless you call or create object of it in the runner class
 public class CommentService {
     //if you have dependency make them private final, common practice
     //these are dependency classes we do not change anything, that why they are private final
