@@ -1,7 +1,6 @@
 package com.cydeo.service;
 
 import com.cydeo.repository.EmployeeRepository;
-import com.cydeo.repository.HoursRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
@@ -9,17 +8,19 @@ import org.springframework.stereotype.Component;
 public class SalaryService {
 
     HoursRepository hoursRepository;
+    HoursRepository hoursRepository2;
     EmployeeRepository employeeRepository;
 
     public SalaryService(@Qualifier("RH") HoursRepository hoursRepository,
+                         @Qualifier("OTH") HoursRepository hoursRepository2,
                          EmployeeRepository employeeRepository) {
+        this.hoursRepository2 = hoursRepository2;
         this.hoursRepository = hoursRepository;
         this.employeeRepository = employeeRepository;
     }
 
-    public void calculateRegularSalary(){
-        //HourlyRate * RegularHours
-        //65*40
-        System.out.println(employeeRepository.getHourlyRate() * hoursRepository.getHours());
+    public void calculateRegularSalary() {
+        //HourlyRate * (RegularHours + OvertimeHours)  => (15 + 40) * 65
+        System.out.println(employeeRepository.getHourlyRate() * (hoursRepository.getHours() + hoursRepository2.getHours()));
     }
 }

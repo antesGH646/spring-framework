@@ -7,7 +7,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 public class Employee {
-
     private String name;
     private String department;
     private int hourlyRate;

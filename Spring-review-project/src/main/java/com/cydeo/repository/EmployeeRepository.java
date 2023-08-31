@@ -1,5 +1,5 @@
 package com.cydeo.repository;
 
 public interface EmployeeRepository {
-    int getHourlyRate();
+    int getHourlyRate(); //interface faking the database
 }

@@ -4,13 +4,11 @@ import com.cydeo.model.Employee;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DBEmployeeRepository implements EmployeeRepository{
-
-    //assume we are getting this data from db
+public class DBEmployeeRepository implements EmployeeRepository {
     @Override
     public int getHourlyRate() {
-        Employee employee = new Employee("Harold Finch","IT",65);
-
+        //assume that this data is coming from db
+        Employee employee = new Employee("Harold Finch", "IT", 65);
         return employee.getHourlyRate();
 
     }
