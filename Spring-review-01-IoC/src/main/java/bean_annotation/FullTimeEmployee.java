@@ -1,4 +1,4 @@
-package bean_practice;
+package bean_annotation;
 
 public class FullTimeEmployee {
 

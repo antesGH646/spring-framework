@@ -1,4 +1,4 @@
-package bean_practice;
+package bean_annotation;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -6,7 +6,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class CydeoApp {
 
     public static void main(String[] args) {
-        //Creating a Spring Container to create beans and manage injections
+        //Creating a Spring Container to create beans and manage injections, pass the config files as parameters
         ApplicationContext container =
                 new AnnotationConfigApplicationContext(AppConfig.class, NewAppConfig.class);
 

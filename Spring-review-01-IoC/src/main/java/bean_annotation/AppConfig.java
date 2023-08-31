@@ -1,4 +1,4 @@
-package bean_practice;
+package bean_annotation;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
