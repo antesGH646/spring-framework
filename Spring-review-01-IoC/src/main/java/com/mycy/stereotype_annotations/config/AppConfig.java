@@ -8,6 +8,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration//tells the Spring Container to follow the direction below
 //tells the Spring Container to look for classes inside stereotype_annotations package
-@ComponentScan()
+@ComponentScan("com.mycy.stereotype_annotations")
 public class AppConfig {
 }
