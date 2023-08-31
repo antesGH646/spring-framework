@@ -10,8 +10,11 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
-//there are rare cases, you may need different bean, the solution is to use prototype scope
-@Scope("prototype")//means whenever requested to create an object create another object
+/*
+Spring is singleton by default, multiple references will point to the same object.
+there are rare cases, you may need different bean, the solution is to use prototype scope
+ */
+@Scope("prototype")//tells spring to create another object whenever requested
 //@Lazy //will not let execution unless a class is called
 public class CommentService {
     //if you have dependency make them private final, common practice
