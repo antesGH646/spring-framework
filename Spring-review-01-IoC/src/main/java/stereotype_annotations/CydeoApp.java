@@ -15,7 +15,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class CydeoApp {
 
     public static void main(String[] args) {
-        //creating a Spring container
+        //creating a Spring container, pass the config class
         ApplicationContext container = new AnnotationConfigApplicationContext(AppConfig.class);
         //Telling the container to create and store a bean from the classes passed in the argument
         container.getBean(DataStructure.class).getTotalHours();
