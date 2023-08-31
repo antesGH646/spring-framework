@@ -4,7 +4,6 @@ import lombok.*;
 import org.springframework.stereotype.Component;
 
 /**
- **
  * With stereotype annotation, no need to create methods/objects
  *  limitation with stereotype annotation:
  *      - we cannot use multiple object as we use with bean annotations.
