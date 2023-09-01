@@ -3,39 +3,62 @@
 
 <head>
     <meta charset="UTF-8">
-    <title th:text="#{index.page.title}">Register</title>
+    <!-- integrating a data from properties file    -->
+<!--    <title th:text="#{index.page.title}"></title>-->
+    <title >Register</title>
+    <!--integrating css custom design file into thymeleaf -->
+    <link th:href="@{css/custom.css}" rel="stylesheet" media="screen">
 </head>
 
 <body>
-    <h2>Thymeleaf Concept</h2>
+<h2>Thymeleaf Concept</h2>
 
-    <!--Displaying Value-->
-    <h2 th:text="${students.get(0).firstName}"></h2>
-    <h2 th:text="${students.get(0).lastName}"></h2>
+<!--Displaying Value-->
+<h2 th:text="${students.get(0).firstName}"></h2>
+<h2 th:text="${students.get(0).lastName}"></h2>
 
-    <!--Concatenation any string with data into the UI-->
-    <h2 th:text="${ 'Welcome ' + students.get(0).firstName}"></h2>
+<!--Concatenation any string with data from pojo into the UI-->
+<h2 th:text="${ 'Welcome ' + students.get(0).firstName}"></h2>
 
-    <!--display a Link into the view syntax: th:href= "@{value}" -->
-    <a th:href="@{https://cydeo.com}">Cydeo Home Page</a><br>
+<!--display a Link into the view syntax: th:href= "@{value}" -->
+<a th:href="@{https://cydeo.com}">Cydeo Home Page</a><br>
 
-    <!--display a file as a Link into the view syntax: th:href= "@{path}" -->
-    <a th:href="@{/student/welcome}">Welcome Student</a><br>
+<!--display a file as a Link into the view syntax: th:href= "@{path}" -->
+<a th:href="@{/student/welcome}">Welcome Student</a><br>
 
-    <!--Adding Parameters to Link-->
-    <a th:href="@{/student/welcome(id=3)}">Welcome</a><br>
-    <a th:href="@{/student/welcome(id=${students.get(0).firstName})}">My Custom</a>
+<!--Adding Parameters to Link-->
+<a th:href="@{/student/welcome(id=3)}">Welcome</a><br>
+<a th:href="@{/student/welcome(id=${students.get(0).firstName})}">My Custom</a>
 
-    <!--Iteration-->
-    <ul>
-        <li th:each="student : ${students}" th:text="${student.firstName}"></li>
-    </ul>
+<!--Iteration-->
+<table class="customDesign">
+    <thead>
+    <tr>
+        <th> First Name</th>
+        <th> Last Name</th>
+        <th> Age</th>
+        <th> State</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="eachStudent : ${students}">
+        <td th:text="${eachStudent.firstName}"></td>
+        <td th:text="${eachStudent.lastName}"></td>
+        <td th:text="${eachStudent.age}"></td>
+        <td th:text="${eachStudent.state}"></td>
+    </tr>
+    </tbody>
+</table>
 
-    <!--Conditional Logic: Displaying a message according to the data-->
-    <div th:text="${students.get(0).age > 25 ? 'ELIGIBLE' : 'NOT ELIGIBLE'}"></div>
-    <div>
-        <span th:if="${students.get(0).getState() == 'Arizona'}">Lives in Arizona</span>
-        <span th:unless="${students.get(0).getState() == 'Arizona'}">Does not live in Arizona</span>
-    </div>
+<ul>
+    <li th:each="student : ${students}" th:text="${student.firstName}"></li>
+</ul>
+
+<!--Conditional Logic: Displaying a message according to the data-->
+<div th:text="${students.get(0).age > 25 ? 'ELIGIBLE' : 'NOT ELIGIBLE'}"></div>
+<div>
+    <span th:if="${students.get(0).getState() == 'Arizona'}">Lives in Arizona</span>
+    <span th:unless="${students.get(0).getState() == 'Arizona'}">Does not live in Arizona</span>
+</div>
 </body>
 </html>
