@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 public class Mentor {
-
+    //these variables are declared from the UI elements
     private String firstName;
     private String lastName;
     private String email;

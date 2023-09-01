@@ -2,15 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Register</title>
 
 </head>
 
 <div align="center"><!--make the body center-->
     <body>
     <h2> Mentor Register </h2>
-    <!--capturing the UI form input into the confirm file-->
-    <form th:action="@{/mentor/confirm}" method="post"  th:object="${mentor}">
+    <!--directs to another page when user clicks on action button, capturing data from the UI input -->
+    <form th:action="@{/mentor/confirm}" method="post" th:object="${mentor}">
 
         <label>First Name:</label>
         <input type="text" id="FirstName" th:field="*{firstName}"><br>
@@ -32,30 +32,10 @@
         <select th:field="*{batch}">
             <option th:each="theBatch : ${batchList}" th:value="${theBatch}" th:text="${theBatch}"></option>
         </select><br>
-
         <label>Company:</label>
         <textarea th:field="*{company}"></textarea><br>
-
         <button type="submit">Register</button>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </form>
-
-
-
-
     </body>
 </div>
 </html>
