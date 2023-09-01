@@ -13,7 +13,8 @@ public class Mentor {
     private String lastName;
     private String email;
     private String gender;
-    private String batch;
+    private String batchNumber;
     private boolean graduated;
-    private String company;
+    private String comment;
+
 }
