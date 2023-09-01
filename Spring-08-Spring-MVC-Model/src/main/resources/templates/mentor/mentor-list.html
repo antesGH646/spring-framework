@@ -15,32 +15,35 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td th:text="${mentors.get(0).firstName}"></td>
-        <td th:text="${mentors.get(0).lastName}"></td>
-        <td th:text="${mentors.get(0).age}"></td>
-        <td th:text="${mentors.get(0).gender}"></td>
-    </tr>
-    <tr>
-        <td th:text="${mentors.get(1).getFirstName()}"></td>
-        <td th:text="${mentors.get(1).getLastName()}"></td>
-        <td th:text="${mentors.get(1).getAge()}"></td>
-        <td th:text="${mentors.get(1).getGender()}"></td>
-    </tr>
-    <tr>
-        <td th:text="${mentors.get(2).firstName}"></td>
-        <td th:text="${mentors.get(2).getLastName()}"></td>
-        <td th:text="${mentors.get(2).age}"></td>
-        <td th:text="${mentors.get(2).gender}"></td>
-    </tr>
-    <!-- may replace multiple entry lines using Thymeleaf iteration
+    <!--Displaying java objects one by one, it is tedious -->
+    <!--
+      <tr>
+          <td th:text="${mentors.get(0).firstName}"></td>
+          <td th:text="${mentors.get(0).lastName}"></td>
+          <td th:text="${mentors.get(0).age}"></td>
+          <td th:text="${mentors.get(0).gender}"></td>
+      </tr>
+      <tr>
+          <td th:text="${mentors.get(1).getFirstName()}"></td>
+          <td th:text="${mentors.get(1).getLastName()}"></td>
+          <td th:text="${mentors.get(1).getAge()}"></td>
+          <td th:text="${mentors.get(1).getGender()}"></td>
+      </tr>
+      <tr>
+          <td th:text="${mentors.get(2).firstName}"></td>
+          <td th:text="${mentors.get(2).getLastName()}"></td>
+          <td th:text="${mentors.get(2).age}"></td>
+          <td th:text="${mentors.get(2).gender}"></td>
+      </tr>
+      -->
+    <!-- may replace multiple entry lines using Thymeleaf iteration -->
     <tr th:each="mentor : ${mentors}">
         <td th:text="${mentor.firstName}"></td>
         <td th:text="${mentor.getLastName()}"></td>
         <td th:text="${mentor.age}"></td>
         <td th:text="${mentor.gender}"></td>
     </tr>
-    -->
+
     </tbody>
 </table>
 </body>
