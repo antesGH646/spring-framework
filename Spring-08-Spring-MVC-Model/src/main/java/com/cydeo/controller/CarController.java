@@ -10,12 +10,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/car")
 public class CarController {
 
+    //capturing data from the user UI url parameters entry
     @RequestMapping("/info1")//localhost:8080/car/info1?make=Honda
     public String carInfo(@RequestParam String make,  Model model) {
         model.addAttribute("make", make);
         return "/car/car-info";
     }
 
+    //capturing data from the user UI url parameters entry
     @RequestMapping("/info2")//localhost:8080/car/info2?make=Honda&year=2019
     public String carInfo1(@RequestParam String make, @RequestParam Integer year,  Model model) {
         model.addAttribute("make", make);//make is the view that carries/pass the java object
@@ -23,7 +25,7 @@ public class CarController {
         return "/car/car-info";
     }
 
-    //make it optional, pass default value if a parameter is not entered in the end point
+    //make it optional, passes a default value if the user does not enter a parameter
     @RequestMapping("/info3")//localhost:8080/car/info3
     public String carInfo2(@RequestParam(value = "make", required = false, defaultValue = "Tesla")
                                String make, Model model) {
