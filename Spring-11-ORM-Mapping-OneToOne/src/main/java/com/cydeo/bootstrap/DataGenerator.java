@@ -69,11 +69,12 @@ public class DataGenerator implements CommandLineRunner {
         departmentList.addAll(Arrays.asList(d1,d2,d3,d4,d5));
         regionList.addAll(Arrays.asList(r1,r2,r3,r4,r5));
 
+        //saveAll() is coming from JpaRepository because it is extending from it
         employeeRepository.saveAll(employeeList);
 
         /**
          *  if employees are set to departments and regions,
-         *  don't need saveAll(), department &region repositories
+         *  department & region repositories
          *  so both DepartmentRepository and RegionRepository are deleted from the repository package
          */
         // departmentRepository.saveAll(departmentList);
