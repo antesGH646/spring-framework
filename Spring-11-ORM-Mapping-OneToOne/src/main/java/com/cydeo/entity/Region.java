@@ -13,7 +13,8 @@ public class Region extends BaseEntity{
     private String region;
     private String country;
 
-    @OneToOne(mappedBy = "region")//marks not to create foreign key, employee has ownership
+    //if you don't tell Hibernate which table own the FK, it will create FK on both tables
+    @OneToOne(mappedBy = "region")//marks not to create foreign key, FK ownership belongs to Employees table
     private Employee employee;//has-a-relationship
 
     public Region(String region, String country) {
