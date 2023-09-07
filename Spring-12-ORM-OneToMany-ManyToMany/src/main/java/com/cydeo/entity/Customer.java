@@ -19,7 +19,7 @@ public class Customer extends BaseEntity{
     private String email;
     private String address;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer")//means don't create FK on customer table
     private List<Payment> paymentList;
     public Customer(String userName, String name, String surName,
                     String email, String address) {

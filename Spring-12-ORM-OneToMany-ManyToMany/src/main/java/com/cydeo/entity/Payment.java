@@ -23,7 +23,7 @@ public class Payment extends BaseEntity {
     private PaymentDetail paymentDetail;
 
     @ManyToOne//no good to put cascading in Many-to-one relationship
-    private Merchant merchant;
+    private Merchant merchant;//many payments to one merchant relationship
 
     @ManyToOne
     private Customer customer;
