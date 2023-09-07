@@ -23,7 +23,7 @@ public class Employee extends BaseEntity{
     @Enumerated(EnumType.STRING)//marks that gender is an enum
     private Gender gender;
 
-    //telling the Spring to create one-to-one relationship
+    //telling the Spring to create one-to-one relationship, employee table will have FK of Department
     // cascading = changes/actions should occur on both existing entities
     @OneToOne(cascade = CascadeType.ALL)//all includes all cascading operations
 //    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
