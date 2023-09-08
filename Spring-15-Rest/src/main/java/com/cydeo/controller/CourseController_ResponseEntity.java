@@ -22,13 +22,13 @@ public class CourseController_ResponseEntity {
 
     /**
      * ResponseEntity class extends from httpEntity
-     * and httpEntity helps to pass headers status ect
+     * and httpEntity helps to pass headers, status, ect
      * @return ResponseEntity
      */
     @GetMapping
     public ResponseEntity<List<CourseDTO>> getAllCourses(){
         return ResponseEntity
-                .status(HttpStatus.ACCEPTED)
+                .status(HttpStatus.ACCEPTED)//passing status code, accepted = 200 = ok
                 .header("Version","Cydeo.V2")
                 .header("Operation","Get List")
                 .body(courseService.getCourses());
@@ -41,10 +41,10 @@ public class CourseController_ResponseEntity {
     }
 
     @PostMapping
-    public ResponseEntity<CourseDTO> createCourse(@RequestBody CourseDTO course){   //break till 8:30 pm
+    public ResponseEntity<CourseDTO> createCourse(@RequestBody CourseDTO course) {
         return ResponseEntity
                 .status(HttpStatus.CREATED)//passing status code, created = 201
-                .header("Operation","Create")//passing head key & values
-                .body(courseService.createCourse(course));//passing a body
+                .header("Operation","Create")//passing a header as key & values
+                .body(courseService.createCourse(course));//passing a json body in the post request
     }
 }
