@@ -22,7 +22,8 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * Converts/maps the CourseDTO object into entity, then saves it into the database
+     * Converts/maps the CourseDTO object into entity, then saves it into the database,
+     * finally returned.
      * @param course CourseDTO
      * @return converted/mapped CourseDTO objects
      */
@@ -40,7 +41,7 @@ public class CourseServiceImpl implements CourseService {
      */
     @Override
     public CourseDTO getCourseById(long courseId) {
-        Course course = courseRepository.findById(courseId).get();
+        Course course = courseRepository.findById(courseId).get(); //findById() is optional, must add .get()
         return mapperUtil.convert(course, new CourseDTO());
     }
 
@@ -58,7 +59,7 @@ public class CourseServiceImpl implements CourseService {
 
     /**
      * All the Courses (entities from db) are fetched, mapped to DTO,
-     * finally returned
+     * finally returned.
      * @return a list of fetched Courses
      */
     @Override
@@ -68,11 +69,11 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * A course is updated in the UI meaning DTO object
-     * Therefore it should be converted to Entity to save the changes in the db.
+     * A course is updated in the UI meaning DTO object.
+     * Therefore, it should be converted to Entity to save the changes in the database.
      *  1) The Course or DTO is converted/mapped to entity
      *  2) The mapped object is first checked it exists in the database
-     *  3) If it exists, it should be set to its category, name, etc
+     *  3) If it exists, it should be set to its category, name, etc.
      *  4) it should be saved
      * @param courseId Long
      * @param courseDTO CourseDTO
@@ -81,17 +82,18 @@ public class CourseServiceImpl implements CourseService {
     public void updateCourse(Long courseId, CourseDTO courseDTO) {
         Course course = mapperUtil.convert(courseDTO, new Course());
         courseRepository.findById(courseId).ifPresent(dbCourse -> {
+            //the object is set to its category
             dbCourse.setName(course.getName());
             dbCourse.setCategory(course.getCategory());
             dbCourse.setDescription(course.getDescription());
             dbCourse.setRating(course.getRating());
 
-            courseRepository.save(dbCourse);
+            courseRepository.save(dbCourse);//the updated object is saved to database
         });
     }
 
     /**
-     * A Course is deleted from the db
+     * A Course is deleted from the database
      * No parameter and return type is needed
      */
     @Override
@@ -100,7 +102,7 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * A Course is deleted by its id from the db
+     * A Course is deleted by its id from the database
      * No parameter and return type is needed
      */
     @Override
