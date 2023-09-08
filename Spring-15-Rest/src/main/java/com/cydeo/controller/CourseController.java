@@ -21,7 +21,7 @@ public class CourseController {
     /**
      * In API, http methods do not return HTML pages instead
      * they return objects or data, so others can use the data
-     * from the API
+     * from the API, that is what API is for
      * @return lists of Courses
      */
     @GetMapping
@@ -43,7 +43,7 @@ public class CourseController {
 
     /**
      * This http method creates the /courses/api/v1/category/{name} endpoint
-     * The url fetches a list of specific category from the database
+     * The url fetches a list of specific category by name from the database
      * e.g /courses/api/v1/category/Spring
      * @param category String
      * @return List of specific categories as passed in the url path
@@ -55,7 +55,7 @@ public class CourseController {
 
     /**
      * The @RequestBody enables the user to enter and send a request body
-     * of CourseDTO object in a Json format to create a Course in the db
+     * of CourseDTO object in a Json format to create a Course in the database
      * @param course CourseDTO
      * @return mapped CourseDTO
      */
