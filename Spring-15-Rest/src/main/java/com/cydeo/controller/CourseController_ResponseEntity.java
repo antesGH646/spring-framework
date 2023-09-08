@@ -4,10 +4,12 @@ import com.cydeo.dto.CourseDTO;
 import com.cydeo.service.CourseService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@RestController combines both the @Controller and @ResponseBody annotations internally
 @RestController//marks that this class is Rest API Controller
 @RequestMapping("/courses/api/v2")
 public class CourseController_ResponseEntity {
