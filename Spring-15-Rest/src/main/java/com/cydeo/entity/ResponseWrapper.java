@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 
 /**
  * This custom mapper is used to add custom messages into
- * the Json response. Can pass these messages by calling the
+ * the Json response. It Can pass the messages by calling the
  * constructor under the body() method of the ResponseEntity class
  * e.g. .body(new ResponseWrapper("message",courseService.getCourses()))
  */
