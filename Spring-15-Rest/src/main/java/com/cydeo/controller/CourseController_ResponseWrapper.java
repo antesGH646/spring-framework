@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@RestController//marks that this class is Rest API Controller
+@RestController//marks that this is a Rest-API Controller, combines both the @Controller and @ResponseBody internally
 @RequestMapping("/courses/api/v3")
 public class CourseController_ResponseWrapper {
 
