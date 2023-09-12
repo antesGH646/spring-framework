@@ -1,5 +1,6 @@
 package com.cydeo.controller;
 
+import com.cydeo.annotation.ExecutionTime;
 import com.cydeo.annotation.Loggable;
 import com.cydeo.dto.CourseDTO;
 import com.cydeo.service.CourseService;
@@ -34,12 +35,14 @@ public class CourseController {
         return list;
     }
 
-    @Loggable
+
+    @ExecutionTime
     @GetMapping("/{id}")
     public CourseDTO getCourseById(@PathVariable("id") Long courseId) {
         return courseService.getCourseById(courseId);
     }
 
+    @Loggable
     @GetMapping("/category/{name}")
     public List<CourseDTO> getCourseByCategory(@PathVariable("name") String category) {
         return courseService.getCoursesByCategory(category)       ;

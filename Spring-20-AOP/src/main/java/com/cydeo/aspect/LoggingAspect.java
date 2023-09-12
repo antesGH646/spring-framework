@@ -9,7 +9,10 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-
+/**
+ * Instead of writing the logs inside the controllers, etc. Aspect class is used
+ * to write the logs and control them
+ */
 @Aspect//Telling Spring that this is an aspect programming, Spring will return proxy objects
 @Configuration//Telling Spring that this is a configuration class, Spring will create proxies of the methods
 public class LoggingAspect {
@@ -27,7 +30,7 @@ public class LoggingAspect {
         logger.info("Logger info ------");
     }
 
-    //you may combine the point cut and the advice before methods
+    //you may combine the point cut and the advice methods
     @Before("execution(* com.cydeo.controller.CourseController.*(..))")
     public void beforeAdvice(){
         logger.info("Logger info ------");

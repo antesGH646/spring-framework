@@ -7,4 +7,4 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.METHOD})//defining the target to be used on method level
 @Retention(RetentionPolicy.RUNTIME)//defining the retention to run at run time
-public @interface Loggable {} //name of the custom annotation -> annotations are marked with @interface
+public @interface Loggable {} //annotations are marked with @interface, named Loggable
