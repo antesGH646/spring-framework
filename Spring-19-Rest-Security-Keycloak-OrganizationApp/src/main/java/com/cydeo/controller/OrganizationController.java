@@ -30,7 +30,7 @@ public class OrganizationController {
         return ResponseEntity.status(HttpStatus.CREATED).body(organizationService.create(organization));
     }
 
-    @RolesAllowed({"ADMIN"})//dding method level restriction: only admin can delete an organization
+    @RolesAllowed({"ADMIN"})//adding method level restriction: only admin can delete an organization
     @DeleteMapping("/{organizationId}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteLicense(@PathVariable("organizationId") Long organizationId) {
