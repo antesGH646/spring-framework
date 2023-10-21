@@ -33,7 +33,7 @@ class ProjectServiceImplTest {
         ProjectDTO projectDTO = new ProjectDTO();//dto
 
         //When part: tell how to mock, mockito has anyString() method
-        // if do not want to pass the code
+        // if you do not want to pass the code
         when(projectRepository.findByProjectCode(anyString())).thenReturn(project);
         when(projectMapper.convertToDto(project)).thenReturn(projectDTO);
 
@@ -47,8 +47,7 @@ class ProjectServiceImplTest {
     }
 
     /**
-     * Instead of testing the real thrown exception
-     * In this method, it mocks to test
+     * Instead of testing the real thrown exception this method mocks to test
      * if the findByProjectCode() method throws an exception
      * NB. In JUnit expected comes first
      */

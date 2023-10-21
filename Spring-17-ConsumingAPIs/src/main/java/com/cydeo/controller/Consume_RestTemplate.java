@@ -27,9 +27,9 @@ public class Consume_RestTemplate {
 
     //stores the API that needs to be consumed in this API
     private final String URI = "https://jsonplaceholder.typicode.com/users";
-    private final RestTemplate restTemplate;
+    private final RestTemplate restTemplate;//declaring an object of RestTemplate library
 
-    //inject RestTemplate
+    //inject RestTemplate object
     public Consume_RestTemplate(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
@@ -67,12 +67,13 @@ public class Consume_RestTemplate {
     /**
      * When consuming a third party API, some API require to enter some
      * headers for security purposes. HttpHeaders class works with headers.
-     * exchange() method from RestTemplate is used when you want to pass
-     * something.
-     * It accepts:
+     * HttpHeaders class has the set() method to set the required headers.
+     * exchange() method from RestTemplate is used when you to pass
+     * the URL, Http Method type, entity, class name.
+     * where:
      *     -the URL that you want to consume
-     *     -type of Http method
-     *     -Http entity object
+     *     -type of Http method(Get, Post, Put, Delete)
+     *     -Http entity object with its assigned headers
      *     -class name
      * @return ResponseEntity Object
      */

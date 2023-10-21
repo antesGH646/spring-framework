@@ -69,10 +69,10 @@ public class CourseServiceImpl implements CourseService {
     }
 
     /**
-     * A course is updated in the UI meaning DTO object.
+     * A course is updated in the UI meaning it is DTO object.
      * Therefore, it should be converted to Entity to save the changes in the database.
      *  1) The Course or DTO is converted/mapped to entity
-     *  2) The mapped object is first checked it exists in the database
+     *  2) The mapped object is first checked if it exists in the database
      *  3) If it exists, it should be set to its category, name, etc.
      *  4) it should be saved
      * @param courseId Long

@@ -1,13 +1,14 @@
-- What ever classes that interact with the data base are placed
+- Whatever classes that interact with the data base are placed
    in the entity/model package. The classes cannot be final, because they are
-   intended to be extended. They have also @Entity annotation on the class level.
+   intended to be extended. Entity classes have the @Entity annotation on the class level.
    Every table must has a primary key with @Id annotation on the field level.
 
-- What ever classes that interact with the UI or API are placed in the DTO package.
+- Whatever classes that interact with the UI or API are placed in the DTO package.
 
-- you may either create data and save it to the database using DAO pattern (creating interfaces, implementing classes,
-    and data generator classes) or use JPA repository from spring boot (you just inherit it, no need to create methods, it
-    has all the methods that you might think of or need, if you need more you may add custom methods)
+- you may either create data and save it to the database using DAO pattern
+  (creating interfaces, implementing classes, and data generator classes) or use JPA repository
+  from spring boot (you just inherit it, no need to create methods, it has all the methods that
+  you might think of or need, if you need more you may add custom methods)
    JPA repository replace all the process of defining service interfaces and their implementations.
    JpaRepository interface accepts two parameters the table name and the primary key type for example,
     ... extends JpaRepository<Car, Long>

@@ -24,9 +24,11 @@ class WelcomeControllerTest {
         //create a request using RequestBuilder and MockMvcRequestBuilders
         RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/welcome")
                 .accept(MediaType.APPLICATION_JSON);//want to see it in json format
-        //send the request, store it in a MvcResult object for verification
+        //send the request using perform() method, store it in a MvcResult object for verification
         MvcResult mvcResult = mockMvc.perform(requestBuilder).andReturn();
+        //verifying if the response status code is 200
         assertEquals(200, mvcResult.getResponse().getStatus());
+        //verifying the response endpoint is welcome
         assertEquals("welcome", mvcResult.getResponse().getContentAsString());
     }
 

@@ -67,6 +67,8 @@ public class CourseController {
     /**
      * Updates a specific data in the database
      * when you hit the url with the path or id
+     * the @RequestBody enables the user to enter
+     * json body request to send the PUT HTTP request
      * e.g /courses/api/v1/3
      * @param courseId Long
      * @param course CourseDTO
