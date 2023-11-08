@@ -1,12 +1,12 @@
 package com.mycy.tightly_coupled;
 
-public class Mentor {
+public class MentorMgr {
     //Defining the class instances
     FullTimeMentor fullTimeMentor;
     PartTimeMentor partTimeMentor;
 
     //initializing the class instances in a constructor
-    public Mentor(FullTimeMentor fullTimeMentor, PartTimeMentor partTimeMentor) {
+    public MentorMgr(FullTimeMentor fullTimeMentor, PartTimeMentor partTimeMentor) {
         this.fullTimeMentor = fullTimeMentor;
         this.partTimeMentor = partTimeMentor;
     }

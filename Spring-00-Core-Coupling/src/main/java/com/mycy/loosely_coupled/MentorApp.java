@@ -9,7 +9,7 @@ public class MentorApp {
 
         //creating an object of the manager class to call the method
         // that calls the implementing methods
-        MentorManager mentor = new MentorManager(fullTime);
-        mentor.manageAccount();
+       MentorManager mentorManager = new MentorManager(fullTime);
+       mentorManager.manageAccount();
     }
 }
