@@ -17,14 +17,14 @@
 
         <dependency>
             <groupId>org.springframework</groupId>
-            <artifactId>spring-aop</artifactId>
-            <version>5.3.22</version>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.30</version>
         </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.22</version>
+            <version>1.18.26</version>
         </dependency>
 
     </dependencies>
