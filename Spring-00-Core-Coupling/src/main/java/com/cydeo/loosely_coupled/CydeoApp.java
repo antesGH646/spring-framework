@@ -8,7 +8,7 @@ public class CydeoApp {
         //PartTimeMentor partTime = new PartTimeMentor();
 
         //pass the object to pass the implementing method of the object
-        MentorAccount mentor = new MentorAccount(fullTime);
+        MentorManager mentor = new MentorManager(fullTime);
         mentor.manageAccount();
     }
 }
