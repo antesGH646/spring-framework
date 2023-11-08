@@ -7,7 +7,8 @@ public class MentorApp {
         FullTimeMentor fullTime = new FullTimeMentor();
         //PartTimeMentor partTime = new PartTimeMentor();
 
-        //pass the object to pass the implementing method of the object
+        //creating an object of the manager class to call the method
+        // that calls the implementing methods
         MentorManager mentor = new MentorManager(fullTime);
         mentor.manageAccount();
     }
