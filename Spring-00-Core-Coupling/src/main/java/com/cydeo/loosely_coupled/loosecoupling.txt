@@ -5,7 +5,7 @@ if the PO adds additional User Stories you could add more implementing classes
 without affecting the other ones. If you make a change in one place, you do
 not need to make changes everywhere. Each implementing class should stand individually.
 Loose coupling uses a concept of behavioral parameterization. In behavioral
-parameterization, the manager class is accepting a reference variable of the
+parameterization, the manager class accepts a reference variable of an
 interface as its parameter.  When you pass the reference variable as a parameter,
 you can call the implementing  methods by passing an implementing class name
 as an argument. This will pass the  behaviors of the class (the class name
@@ -19,4 +19,4 @@ The approach or the flow:
   in the constructor. Create a method that calls the behaviors
 4) Create a runner class that has the objects of the manager class and of the desired implementing classes.
 When you pass the object of the implementing class into the method of the manager method,
-it will give you the desired output after you pass the behavior of the implementing class.
+it will give you the desired output by passing the behaviors of the implementing classes.
