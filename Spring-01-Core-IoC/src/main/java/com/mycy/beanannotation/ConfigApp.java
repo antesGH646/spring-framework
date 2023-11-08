@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Primary;
 @Configuration//marking to tell the context to place and manage beans from the below classes
 public class ConfigApp {
 
-    @Bean()//asking the context to place this object and manage it for you
+    @Bean()//asking the context to create an object and manage it for you
     FullTimeMentor fullTimeMentor() {
         return new FullTimeMentor();
     }

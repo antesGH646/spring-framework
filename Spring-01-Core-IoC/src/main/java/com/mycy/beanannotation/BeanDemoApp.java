@@ -3,7 +3,7 @@ package com.mycy.beanannotation;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class CydeoApp {
+public class BeanDemoApp {
     public static void main(String[] args) {
         //creating container and telling it from which Config file to get direction
         //by passing the Config files name/s
