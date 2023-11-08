@@ -19,7 +19,7 @@ Note that, the stereotype annotations are placed on class level.
 Flow:
     1) Create classes that do specific tasks, if you want to use a method from an implementing class
      put @Component annotation on the class level.
-    2)Create a Config file that has both the @Configuration or @ConfigurationScan annotation on
+    2)Create a Config file that has the @Configuration or @ConfigurationScan annotation on
     the class level . If you are using the stereotype annotation place them at the class level, but if you
     are using the beans annotation place them at the method level.
     3) Create a runner class, create the context, pass the class name into the getBean(className.class)
