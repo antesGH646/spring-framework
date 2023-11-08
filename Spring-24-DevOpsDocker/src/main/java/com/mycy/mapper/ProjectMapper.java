@@ -1,0 +1,24 @@
+package com.mycy.mapper;
+
+import com.mycy.dto.ProjectDTO;
+import com.mycy.entity.Project;
+import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
+
+@Component
+public class ProjectMapper {
+    private final ModelMapper modelMapper;
+
+    public ProjectMapper(ModelMapper modelMapper) {
+        this.modelMapper = modelMapper;
+    }
+
+    //convert into entity
+    public Project convertToEntity(ProjectDTO dto) {
+        return modelMapper.map(dto, Project.class);
+    }
+    //convert into dto
+    public ProjectDTO convertToDTO(Project entity) {
+        return modelMapper.map(entity, ProjectDTO.class);
+    }
+}
