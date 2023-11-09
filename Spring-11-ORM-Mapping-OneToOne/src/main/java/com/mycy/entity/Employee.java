@@ -27,7 +27,7 @@ public class Employee extends BaseEntity{
     // cascading = changes/actions should occur on both existing entities
     @OneToOne(cascade = CascadeType.ALL)//all includes all cascading operations
 //    @OneToOne(cascade = {CascadeType.PERSIST,CascadeType.REMOVE})
-    @JoinColumn(name = "department_id")//changing the default name
+    @JoinColumn(name = "department_id")//changing the default name of the FK
     private Department department;
 
     @OneToOne(cascade = CascadeType.ALL)//hibernate needs to know the type of relationship
