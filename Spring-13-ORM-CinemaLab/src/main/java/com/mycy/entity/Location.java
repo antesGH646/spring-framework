@@ -9,8 +9,7 @@ import java.math.BigDecimal;
 @Entity
 @NoArgsConstructor
 @Data
-public class Location extends BaseEntity{
-
+public class Location extends BaseEntity {
     private String name;
     private BigDecimal latitude;
     private BigDecimal longitude;

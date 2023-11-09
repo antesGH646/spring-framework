@@ -16,7 +16,7 @@ import java.util.List;
 public class Genre extends BaseEntity{
     private String name;
 
-    @ManyToMany(mappedBy = "genreList")//give the ownership to the other object genreList
+    @ManyToMany(mappedBy = "genreList")//give the FK ownership to Movie table
     private List<Movie> movieList;
 
     @Override
