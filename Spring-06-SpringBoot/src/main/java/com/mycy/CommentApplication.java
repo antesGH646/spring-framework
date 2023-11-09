@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
-public class CydeoApplication {
+public class CommentApplication {
 
     public static void main(String[] args) {
 
@@ -17,7 +17,7 @@ public class CydeoApplication {
 
         //in real application we do not store it in an object
        ApplicationContext context =
-               SpringApplication.run(CydeoApplication.class, args);
+               SpringApplication.run(CommentApplication.class, args);
 
        CommentService cs = context.getBean(CommentService.class);
        cs.publishComment(comment);
