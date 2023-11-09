@@ -3,7 +3,7 @@ package com.mycy.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@Controller
+@Controller//tells Spring that this class has methods that return endpoints that display views
 public class HomeController {
 
     @RequestMapping ("/rs")//rs is the end point, responds to the http request
