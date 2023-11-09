@@ -9,9 +9,11 @@ import org.springframework.context.annotation.Configuration;
  * in which the classes with @Component annotation are found. If you have more than one package
  * use curly braces, and separate the package names by commas.
  */
-@Configuration
+@Configuration//marks that this class is a configuration class
 //@ComponentScan(basePackages = "com.mycy")
-//if you are passing multiple packages use curly braces
+
+//marks for Spring to look component class in the following packages
+// if you are passing multiple packages use curly braces
 @ComponentScan(basePackages = {"com.mycy.proxy", "com.mycy.service", "com.mycy.repository"})
 public class ProjectConfig {
 }

@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 //@Primary //to tell which one to inject if there are many classes of the same type
-@Qualifier("EMAIL")//using custom in case the names are long
+@Qualifier("EMAIL")//used for identification, if more than 1 classes are implementing an interface
 public class EmailCommentNotificationProxy implements CommentNotificationProxy{
     @Override
     public void sendComment(Comment comment) {

@@ -8,13 +8,19 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
+
 /*
-Spring is singleton by default, multiple references will point to the same object.
-there are rare cases, you may need different bean, the solution is to use prototype scope
- */
-@Scope("prototype")//tells spring to create another object whenever requested
-//@Lazy //will not create beans automatically by default unless you call or create object of it in the runner class
+ Spring is singleton by default, multiple references will point to the same object.
+ There are rare cases that you might need a different bean. If you face certain
+ challenges with a bean, the solution is to use a prototype scope.
+ The @Scope("prototype") tells spring to create additional object whenever requested
+ If you use @Lazy annotation Spring context will not create beans automatically by default
+ unless you call or create object of it in the runner class
+ Do not use both the @Scope("prototype") and the @Lazy annotations at the same time.
+*/
+@Component//tells spring context to create a bean from this class
+@Scope("prototype")
+//@Lazy
 public class CommentService {
     //if you have dependency make them private final, common practice
     //these are dependency classes we do not change anything, that why they are private final
