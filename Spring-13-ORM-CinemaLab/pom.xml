@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.10</version>
+        <version>2.7.11</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.com</groupId>
+    <groupId>com.mycy</groupId>
     <artifactId>Spring-13-ORM-CinemaLab</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Spring-13-ORM-CinemaLab</name>
@@ -25,6 +25,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
+
         <!--like all the other version controls flyway is used to track database changes-->
         <dependency>
             <groupId>org.flywaydb</groupId>
@@ -36,11 +37,13 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

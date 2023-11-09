@@ -25,7 +25,7 @@ public class Account extends BaseEntity{
     @Enumerated(EnumType.STRING)
     private UserRole role = UserRole.USER;//assign the user directly
 
-    @OneToOne(mappedBy = "account")//give ownership to the Account object
+    @OneToOne(mappedBy = "account")//give FK ownership to the User object
     private User user;
 
     @Override
