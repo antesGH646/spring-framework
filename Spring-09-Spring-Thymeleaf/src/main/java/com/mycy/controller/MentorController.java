@@ -32,7 +32,8 @@ public class MentorController {
     public String showForm2(@ModelAttribute("mentor") Mentor mentor){
         System.out.println(mentor.toString());
         return "mentor/mentor-confirmation";
-       // return "redirect:/mentor/register";
+        // we can have different http methods for the same end point
+        // return "redirect:/mentor/register";
     }
 
 }

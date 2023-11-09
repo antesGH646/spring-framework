@@ -37,7 +37,7 @@
       </tr>
       -->
     <!-- may replace multiple entry lines using Thymeleaf iteration -->
-    <tr th:each="mentor : ${mentors}">
+    <tr th:each="mentor:${mentors}">
         <td th:text="${mentor.firstName}"></td>
         <td th:text="${mentor.getLastName()}"></td>
         <td th:text="${mentor.age}"></td>
