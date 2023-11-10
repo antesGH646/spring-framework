@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.10</version>
+        <version>2.7.11</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.cydeo</groupId>
+    <groupId>com.mycy</groupId>
     <artifactId>Spring-14-ORM-Queries</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Spring-14-ORM-Queries</name>
@@ -31,11 +31,13 @@
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
         </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>

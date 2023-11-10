@@ -16,11 +16,13 @@ public class Course {
 
     @Column(name="NAME")
     private String name;
+
     @Column(name="CATEGORY")
     private String category;
+
     @Column(name="RATING")
     private Integer rating;
+
     @Column(name="DESCRIPTION")
     private String description;
-
 }
