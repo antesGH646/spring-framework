@@ -6,11 +6,11 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.7.6</version>
+        <version>2.7.11</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.cydeo</groupId>
+    <groupId>com.mycy</groupId>
     <artifactId>Spring-16-Rest-Jackson</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>Spring-16-Rest-Jackson</name>
