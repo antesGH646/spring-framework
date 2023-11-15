@@ -23,7 +23,7 @@ public class CourseController_ResponseWrapper {
     public ResponseEntity<ResponseWrapper> getAllCourses(){
 
         return ResponseEntity
-                .status(HttpStatus.ACCEPTED)
+                .status(HttpStatus.OK)
                 .header("Version","Cydeo.V3")
                 .body(new ResponseWrapper("successfully retrieved",courseService.getCourses()));
     }
