@@ -27,10 +27,10 @@ import javax.persistence.*;
 @JsonIgnoreProperties(value = {"hibernateLazyInitializer"},ignoreUnknown = true)
 public class User extends BaseEntity {
 
-//    @JsonIgnore
+//    @JsonIgnore//will not be serialized into the Rest response body
     private String email;
 
-    //enables to include it in the response body, but ignored or not be serialized in the response body
+    //enables to include it in the request body, but ignored or not be serialized in the response body
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 

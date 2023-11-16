@@ -24,11 +24,12 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "account_details")
 //@JsonIgnoreProperties(value = {"hibernateLazyInitializer"},ignoreUnknown = true)
+//the state and postalCode fields will not be serialized into the Rest response body
 @JsonIgnoreProperties(value = {"state", "postalCode"},ignoreUnknown = true)
 public class Account extends BaseEntity {
 
     private String name;
-    @JsonIgnore
+    @JsonIgnore//the address field won't be serialized into the Rest response body
     private String address;
     private String country;
     private String state;
